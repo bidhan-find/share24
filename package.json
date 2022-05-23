@@ -1,0 +1,10 @@
+{
+  "name": "share24",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Bidhan Dev",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  }
+}
