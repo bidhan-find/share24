@@ -11,30 +11,41 @@
                 <h3>Account creation</h3>
                 <p>Enter a nickname and a password to create your account</p>
             </div>
-            <form>
-                <div class="field-wrapper">
-                    <input type="text" name="username" placeholder="Username" autocomplete="off">
-                    <label>Username</label>
+            <% if(messages.error){ %>
+                <div class="error_msg text-center">
+                    <p class="text-danger">
+                        <%= messages.error %>
+                    </p>
                 </div>
-                <div class="field-wrapper">
-                    <input type="email" name="email" placeholder="Email" autocomplete="off">
-                    <label>Email</label>
-                </div>
-                <div class="field-wrapper">
-                    <i class='auth_show_pass toggle-password bx bx-hide' toggle="#password-field"></i>
-                    <input id="password-field" type="password" name="password" placeholder="Password">
-                    <label>Password</label>
-                </div>
-                <div class="field-wrapper">
-                    <i class='auth_show_pass toggle-password2 bx bx-hide' toggle="#password-field2"></i>
-                    <input id="password-field2" type="password" name="confirmPassword" placeholder="Confirm Password">
-                    <label>Confirm Password</label>
-                </div>
-                <a href="/login" class="auth_link">Already have an account!</a>
-                <div class="submit_btn">
-                    <button type="submit">Sign-up</button>
-                </div>
-            </form>
+                <% } %>
+                    <form action="/register" method="POST">
+                        <div class="field-wrapper">
+                            <input type="text" name="name" value="<%= messages.name %>" placeholder="Username"
+                                autocomplete="off">
+                            <label>Username</label>
+                        </div>
+                        <div class="field-wrapper">
+                            <input type="email" name="email" value="<%= messages.email %>" placeholder="Email"
+                                autocomplete="off">
+                            <label>Email</label>
+                        </div>
+                        <div class="field-wrapper">
+                            <i class='auth_show_pass toggle-password bx bx-hide' toggle="#password-field"></i>
+                            <input id="password-field" value="<%= messages.password %>" type="password" name="password"
+                                placeholder="Password">
+                            <label>Password</label>
+                        </div>
+                        <div class="field-wrapper">
+                            <i class='auth_show_pass toggle-password2 bx bx-hide' toggle="#password-field2"></i>
+                            <input id="password-field2" value="<%= messages.confirmPassword %>" type="password"
+                                name="confirmPassword" placeholder="Confirm Password">
+                            <label>Confirm Password</label>
+                        </div>
+                        <a href="/login" class="auth_link">Already have an account!</a>
+                        <div class="submit_btn">
+                            <button type="submit">Sign-up</button>
+                        </div>
+                    </form>
         </div>
     </div>
 </section>

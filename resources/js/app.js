@@ -31,3 +31,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+/* ---------------- Show & Hide input password ---------------- */
+const showOrHidePassword = (className) => {
+    $(className).click(function () {
+        $(this).toggleClass('bx-hide bx-show');
+        const input = $($(this).attr('toggle'));
+        if (input.attr('type') === 'password') {
+            input.attr('type', 'text');
+        } else {
+            input.attr('type', 'password');
+        }
+    });
+};
+
+showOrHidePassword('.toggle-password');
+showOrHidePassword('.toggle-password2');

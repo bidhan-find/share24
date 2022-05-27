@@ -11,21 +11,28 @@
                 <h3>Welcome to Share24!</h3>
                 <p>Fill in your email to log in or sign in</p>
             </div>
-            <form>
-                <div class="field-wrapper">
-                    <input type="email" name="email" placeholder="Email" autocomplete="off">
-                    <label>Email</label>
+            <% if(messages.error){ %>
+                <div class="error_msg text-center">
+                    <p class="text-danger">
+                        <%= messages.error %>
+                    </p>
                 </div>
-                <div class="field-wrapper">
-                    <i class='auth_show_pass toggle-password bx bx-hide' toggle="#password-field"></i>
-                    <input id="password-field" type="password" name="password" placeholder="Password">
-                    <label>Password</label>
-                </div>
-                <a href="/register" class="auth_link">Don't have account?</a>
-                <div class="submit_btn">
-                    <button type="submit">Sign-up</button>
-                </div>
-            </form>
+                <% } %>
+                    <form action="/login" method="POST">
+                        <div class="field-wrapper">
+                            <input type="email" name="email" placeholder="Email" value="<%= messages.email %>">
+                            <label>Email</label>
+                        </div>
+                        <div class="field-wrapper">
+                            <i class='auth_show_pass toggle-password bx bx-hide' toggle="#password-field"></i>
+                            <input id="password-field" type="password" name="password" placeholder="Password">
+                            <label>Password</label>
+                        </div>
+                        <a href="/register" class="auth_link">Don't have account?</a>
+                        <div class="submit_btn">
+                            <button type="submit">Sign-up</button>
+                        </div>
+                    </form>
         </div>
     </div>
 </section>
