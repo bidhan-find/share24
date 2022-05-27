@@ -1,10 +1,26 @@
 {
   "name": "share24",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "main": "server.js",
+  "license": "https://github.com/bidhandev/share24/blob/master/LICENSE",
   "author": "Bidhan Dev",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
   "dependencies": {
     "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "laravel-mix": "^6.0.43",
+    "nodemon": "^2.0.16",
+    "resolve-url-loader": "5.0.0",
+    "sass": "^1.52.1",
+    "sass-loader": "12.1.0"
   }
 }

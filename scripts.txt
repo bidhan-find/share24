@@ -1,0 +1,2 @@
+1. start nodemom = yarn start:dev
+2. start laravel-mix = yarn mix watch
