@@ -1,5 +1,18 @@
 @import "./variables";
 
+@media (max-width: 1200px) {
+    /*---------------- [3] Auth page ----------------*/
+    section.auth {
+        a.back_btn {
+            top: 37px !important;
+            left: 100px !important;
+        }
+        .auth_container {
+            width: 43% !important;
+        }
+    }
+}
+
 @media (max-width: 991px) {
     /*---------------- [1] Navbar ----------------*/
     nav.main_navbar {
@@ -45,6 +58,16 @@
         }
     }
 
+    /*---------------- [3] Auth page ----------------*/
+    section.auth {
+        a.back_btn {
+            left: 15px !important;
+        }
+        .auth_container {
+            width: 60% !important;
+        }
+    }
+
     /*---------------- [**] Footer ----------------*/
     footer {
         .social {
@@ -52,7 +75,7 @@
             text-align: center;
         }
         .footer_border_r {
-            border-right: none;
+            border-right: none !important;
         }
         .web_links {
             margin-top: 30px;
@@ -61,6 +84,18 @@
             .footer_link_border {
                 margin: auto;
             }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    /*---------------- [3] Auth page ----------------*/
+    section.auth {
+        a.back_btn {
+            left: -66px !important;
+        }
+        .auth_container {
+            width: 80% !important;
         }
     }
 }
@@ -93,6 +128,19 @@
             ul.feature_list {
                 margin-left: 0px;
             }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    /*---------------- [3] Auth page ----------------*/
+    section.auth {
+        a.back_btn {
+            display: none;
+        }
+        .auth_container {
+            margin-top: 26px !important;
+            width: 85% !important;
         }
     }
 }
@@ -142,6 +190,21 @@
                     }
                 }
             }
+        }
+    }
+
+    /*---------------- [3] Auth page ----------------*/
+    section.auth {
+        .auth_container {
+            .titles {
+                h3 {
+                    font-size: 25px;
+                }
+                p {
+                    font-size: 13px;
+                }
+            }
+            width: 100% !important;
         }
     }
 }

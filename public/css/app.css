@@ -13,11 +13,22 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 0. Theme default css
 1. Navbar / nav.main_navbar
 2. Landing page / section.landing_page
+3. Auth page / section.auth
 **. Footer / footer
 
 */
 /*--- Import files ---*/
 /*--- Variables ---*/
+@media (max-width: 1200px) {
+  /*---------------- [3] Auth page ----------------*/
+  section.auth a.back_btn {
+    top: 37px !important;
+    left: 100px !important;
+  }
+  section.auth .auth_container {
+    width: 43% !important;
+  }
+}
 @media (max-width: 991px) {
   /*---------------- [1] Navbar ----------------*/
   nav.main_navbar .navbar-collapse.collapse ul.navbar-nav.ms-auto {
@@ -59,13 +70,21 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
     margin-left: 75px;
   }
 
+  /*---------------- [3] Auth page ----------------*/
+  section.auth a.back_btn {
+    left: 15px !important;
+  }
+  section.auth .auth_container {
+    width: 60% !important;
+  }
+
   /*---------------- [**] Footer ----------------*/
   footer .social {
     margin-top: 36px;
     text-align: center;
   }
   footer .footer_border_r {
-    border-right: none;
+    border-right: none !important;
   }
   footer .web_links {
     margin-top: 30px;
@@ -74,6 +93,15 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
   }
   footer .web_links .footer_link_border {
     margin: auto;
+  }
+}
+@media (max-width: 768px) {
+  /*---------------- [3] Auth page ----------------*/
+  section.auth a.back_btn {
+    left: -66px !important;
+  }
+  section.auth .auth_container {
+    width: 80% !important;
   }
 }
 @media (max-width: 600px) {
@@ -92,6 +120,16 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
   /*---------------- [2] Landing page ----------------*/
   section.landing_page .feature_zoon ul.feature_list {
     margin-left: 0px;
+  }
+}
+@media (max-width: 480px) {
+  /*---------------- [3] Auth page ----------------*/
+  section.auth a.back_btn {
+    display: none;
+  }
+  section.auth .auth_container {
+    margin-top: 26px !important;
+    width: 85% !important;
   }
 }
 @media (max-width: 321px) {
@@ -134,6 +172,17 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
   }
   section.landing_page .feature_zoon ul.feature_list li i {
     font-size: 19px;
+  }
+
+  /*---------------- [3] Auth page ----------------*/
+  section.auth .auth_container {
+    width: 100% !important;
+  }
+  section.auth .auth_container .titles h3 {
+    font-size: 25px;
+  }
+  section.auth .auth_container .titles p {
+    font-size: 13px;
   }
 }
 /*--- Global Style ---*/
@@ -315,9 +364,163 @@ section.landing_page img.hero_img {
   margin-top: 20px;
 }
 
+/*---------------- [3] Auth page ----------------*/
+section.auth {
+  padding-bottom: 100px;
+}
+section.auth img.auth_waves {
+  position: fixed;
+  bottom: -2%;
+  width: 100%;
+  min-height: 130px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -11;
+}
+section.auth a.back_btn {
+  position: relative;
+  top: 45px;
+  left: 250px;
+  color: #f9b544;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+section.auth a.back_btn i {
+  font-size: 22px;
+  position: relative;
+  top: 4.5px;
+  right: 6px;
+}
+section.auth .auth_container {
+  background: transparent;
+  width: 33%;
+  margin: auto;
+  padding: 10px 26px;
+  border-radius: 14px;
+}
+section.auth .auth_container .titles {
+  font-family: "Poppins", sans-serif;
+}
+section.auth .auth_container .titles h3 {
+  font-weight: 600;
+}
+section.auth .auth_container .titles p {
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 500;
+  color: #4a4a4a;
+}
+section.auth .auth_container form {
+  margin-top: 40px;
+}
+section.auth .auth_container form .field-wrapper {
+  margin-top: 35px;
+  position: relative;
+}
+section.auth .auth_container form .field-wrapper label {
+  position: absolute;
+  pointer-events: none;
+  font-size: 16px;
+  font-weight: 500;
+  top: 40%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all ease-in 0.25s;
+  color: #999999;
+}
+section.auth .auth_container form .field-wrapper input[type=text],
+section.auth .auth_container form .field-wrapper input[type=password],
+section.auth .auth_container form .field-wrapper input[type=email] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+section.auth .auth_container form .field-wrapper input[type=text]:focus,
+section.auth .auth_container form .field-wrapper input[type=password]:focus,
+section.auth .auth_container form .field-wrapper input[type=email]:focus {
+  outline: none;
+}
+section.auth .auth_container form .field-wrapper input[type=text],
+section.auth .auth_container form .field-wrapper input[type=email],
+section.auth .auth_container form .field-wrapper input[type=password] {
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  border: none;
+  background: transparent;
+  line-height: 2em;
+  border-bottom: 2px solid #f9b544;
+}
+section.auth .auth_container form .field-wrapper input[type=text]::-webkit-input-placeholder,
+section.auth .auth_container form .field-wrapper input[type=email]::-webkit-input-placeholder,
+section.auth .auth_container form .field-wrapper input[type=password]::-webkit-input-placeholder {
+  opacity: 0;
+}
+section.auth .auth_container form .field-wrapper input[type=text]::-moz-placeholder,
+section.auth .auth_container form .field-wrapper input[type=email]::-moz-placeholder,
+section.auth .auth_container form .field-wrapper input[type=password]::-moz-placeholder {
+  opacity: 0;
+}
+section.auth .auth_container form .field-wrapper input[type=text]:-ms-input-placeholder,
+section.auth .auth_container form .field-wrapper input[type=email]:-ms-input-placeholder,
+section.auth .auth_container form .field-wrapper input[type=password]:-ms-input-placeholder {
+  opacity: 0;
+}
+section.auth .auth_container form .field-wrapper input[type=text]:-moz-placeholder,
+section.auth .auth_container form .field-wrapper input[type=email]:-moz-placeholder,
+section.auth .auth_container form .field-wrapper input[type=password]:-moz-placeholder {
+  opacity: 0;
+}
+section.auth .auth_container form .field-wrapper input[type=text]:not(:-moz-placeholder-shown) + label, section.auth .auth_container form .field-wrapper input[type=email]:not(:-moz-placeholder-shown) + label, section.auth .auth_container form .field-wrapper input[type=password]:not(:-moz-placeholder-shown) + label {
+  top: -35%;
+  color: #f9b544;
+}
+section.auth .auth_container form .field-wrapper input[type=text]:not(:-ms-input-placeholder) + label, section.auth .auth_container form .field-wrapper input[type=email]:not(:-ms-input-placeholder) + label, section.auth .auth_container form .field-wrapper input[type=password]:not(:-ms-input-placeholder) + label {
+  top: -35%;
+  color: #f9b544;
+}
+section.auth .auth_container form .field-wrapper input[type=text]:focus + label, section.auth .auth_container form .field-wrapper input[type=text]:not(:placeholder-shown) + label,
+section.auth .auth_container form .field-wrapper input[type=email]:focus + label,
+section.auth .auth_container form .field-wrapper input[type=email]:not(:placeholder-shown) + label,
+section.auth .auth_container form .field-wrapper input[type=password]:focus + label,
+section.auth .auth_container form .field-wrapper input[type=password]:not(:placeholder-shown) + label {
+  top: -35%;
+  color: #f9b544;
+}
+section.auth .auth_container form .submit_btn {
+  margin-top: 46px;
+}
+section.auth .auth_container form .submit_btn button {
+  width: 100%;
+  border: none;
+  background-color: #f9b544;
+  color: white;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+section.auth .auth_container form .auth_show_pass {
+  position: absolute;
+  right: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #f9b544;
+}
+section.auth .auth_container form a.auth_link {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  position: relative;
+  top: 18px;
+  color: #f9b544;
+  font-weight: 500;
+}
+
 /*---------------- [**] Footer ----------------*/
 footer {
   background-color: #333;
+  z-index: 1;
   width: 100%;
   padding: 30px 0;
   color: white;
