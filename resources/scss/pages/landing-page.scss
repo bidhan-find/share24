@@ -1,0 +1,55 @@
+section.landing_page {
+    background-image: url("/img/hero-bg.svg");
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    height: auto;
+    padding-bottom: 100px;
+    .titles {
+        text-align: center;
+        h3 {
+            letter-spacing: 0.2px;
+            font-family: $poppins;
+            font-weight: 600;
+            color: #333333;
+        }
+        h5 {
+            font-size: 18px;
+            line-height: 28px;
+            color: #9b9b9b;
+            font-family: $poppins;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+    }
+    .feature_zoon {
+        margin-top: 60px;
+        h5 {
+            i {
+                margin-right: 5px;
+                color: $primary-color;
+            }
+        }
+        ul.feature_list {
+            margin-top: 26px;
+            li {
+                margin-bottom: 12px;
+                font-size: 18px;
+                font-family: $poppins;
+                font-weight: 500;
+                color: #535353;
+                i {
+                    margin-right: 7px;
+                    font-size: 26px;
+                    color: $primary-color;
+                    position: relative;
+                    top: 4px;
+                }
+            }
+        }
+    }
+    img.hero_img {
+        margin-top: 20px;
+    }
+}

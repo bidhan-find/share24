@@ -1,0 +1,131 @@
+section.auth {
+    padding-bottom: 100px;
+    img.auth_waves {
+        position: fixed;
+        bottom: -2%;
+        width: 100%;
+        min-height: 130px;
+        object-fit: cover;
+        z-index: -11;
+    }
+    a.back_btn {
+        position: relative;
+        top: 45px;
+        left: 250px;
+        color: $primary-color;
+        font-size: 17px;
+        font-family: $poppins;
+        font-weight: 600;
+        i {
+            font-size: 22px;
+            position: relative;
+            top: 4.5px;
+            right: 6px;
+        }
+    }
+    .auth_container {
+        background: transparent;
+        width: 33%;
+        margin: auto;
+        padding: 10px 26px;
+        border-radius: 14px;
+        .titles {
+            font-family: $poppins;
+            h3 {
+                font-weight: 600;
+            }
+            p {
+                font-size: 15px;
+                line-height: 21px;
+                font-weight: 500;
+                color: #4a4a4a;
+            }
+        }
+        form {
+            margin-top: 40px;
+            .field-wrapper {
+                margin-top: 35px;
+                position: relative;
+
+                label {
+                    position: absolute;
+                    pointer-events: none;
+                    font-size: 16px;
+                    font-weight: 500;
+                    top: 40%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    transition: all ease-in 0.25s;
+                    color: lighten(#666, 20%);
+                }
+                input[type="text"],
+                input[type="password"],
+                input[type="email"] {
+                    appearance: none;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                input[type="text"],
+                input[type="email"],
+                input[type="password"] {
+                    font-size: 16px;
+                    font-weight: 500;
+                    width: 100%;
+                    border: none;
+                    background: transparent;
+                    line-height: 2em;
+                    border-bottom: 2px solid $primary-color;
+
+                    &::-webkit-input-placeholder {
+                        opacity: 0;
+                    }
+                    &::-moz-placeholder {
+                        opacity: 0;
+                    }
+                    &:-ms-input-placeholder {
+                        opacity: 0;
+                    }
+                    &:-moz-placeholder {
+                        opacity: 0;
+                    }
+                    &:focus,
+                    &:not(:placeholder-shown) {
+                        + label {
+                            top: -35%;
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+            .submit_btn {
+                margin-top: 46px;
+                button {
+                    width: 100%;
+                    border: none;
+                    background-color: $primary-color;
+                    color: $pure;
+                    padding: 10px 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border-radius: 6px;
+                }
+            }
+            .auth_show_pass {
+                position: absolute;
+                right: 10px;
+                font-size: 22px;
+                cursor: pointer;
+                color: $primary-color;
+            }
+            a.auth_link {
+                font-family: $poppins;
+                font-size: 14px;
+                position: relative;
+                top: 18px;
+                color: $primary-color;
+                font-weight: 500;
+            }
+        }
+    }
+}

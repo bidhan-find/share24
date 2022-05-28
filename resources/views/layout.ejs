@@ -26,17 +26,40 @@
 			</button>
 			<div class="collapse navbar-collapse" id="main_nav">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link login" href="/login">Login</a></li>
-					<li class="nav-item"><a class="nav-link register" href="/register">Register</a></li>
+					<% if (user) { %>
+						<li class="nav-item"><a class="nav-link" href="/drop">Drop</a></li>
+						<form id="logout" action="/logout" method="POST"></form>
+						<li class="nav-item"><a onclick="document.getElementById('logout').submit()" class="nav-link"
+								href="#">Logout</a></li>
+						<li class="nav-item navbar_profile">
+							<img id="userEditZoonBtn" src="/img/profile.png" alt="Navbar profile">
+						</li>
+						<% } else{ %>
+							<li class="nav-item"><a class="nav-link login" href="/login">Login</a></li>
+							<li class="nav-item"><a class="nav-link register" href="/register">Register</a></li>
+							<% }%>
+
 				</ul>
 			</div>
 		</div>
 	</nav>
 
+	<!--*---------------- [4] Edit user ----------------*-->
+	<div class="edit_user">
+		<div class="header">
+			<i id="closeUserEditZoon" class='bx bx-x'></i>
+			<img class="profile_img" src="/img/profile.png" alt="">
+			<h4>
+				Hello, <%= user?.name %>
+			</h4>
+			<img class="profile_bg" src="/img/auth-bg.svg" alt="">
+		</div>
+	</div>
+
 	<%- body %>
 
 		<!--*---------------- [**] Footer ----------------*-->
-		<footer>
+		<!-- <footer>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 footer_border_r">
@@ -92,7 +115,7 @@
 					</div>
 				</div>
 			</div>
-		</footer>
+		</footer> -->
 		<!-- Required JS plugins -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js"
 			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

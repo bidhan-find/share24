@@ -1,0 +1,50 @@
+.showEditUserZoon {
+    transform: translateX(0px) !important;
+}
+
+.edit_user {
+    height: 100%;
+    width: 370px;
+    background-color: $pure;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1111;
+    transform: translateX(375px);
+    transition: transform 0.4s ease;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+    .header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 36px;
+        #closeUserEditZoon {
+            position: absolute;
+            top: 9px;
+            right: 36px;
+            font-size: 32px;
+            cursor: pointer;
+        }
+        img.profile_img {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+        }
+        h4 {
+            font-family: $poppins;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        img.profile_bg {
+            height: 58px;
+            margin: 0.4rem 0;
+            vertical-align: middle;
+            object-fit: cover;
+            object-position: 42% 50%;
+            width: 100%;
+        }
+    }
+}

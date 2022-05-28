@@ -47,3 +47,16 @@ const showOrHidePassword = (className) => {
 
 showOrHidePassword('.toggle-password');
 showOrHidePassword('.toggle-password2');
+
+/* ---------------- Edit user info ---------------- */
+const userEditZoonBtn = document.querySelector('#userEditZoonBtn');
+const editUserContainer = document.querySelector('.edit_user');
+const closeUserEditZoon = document.querySelector('#closeUserEditZoon');
+
+userEditZoonBtn?.addEventListener('click', () => {
+    editUserContainer.classList.add('showEditUserZoon');
+});
+
+closeUserEditZoon?.addEventListener('click', () => {
+    editUserContainer.classList.remove('showEditUserZoon');
+});

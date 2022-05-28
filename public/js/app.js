@@ -64,6 +64,17 @@ var showOrHidePassword = function showOrHidePassword(className) {
 
 showOrHidePassword('.toggle-password');
 showOrHidePassword('.toggle-password2');
+/* ---------------- Edit user info ---------------- */
+
+var userEditZoonBtn = document.querySelector('#userEditZoonBtn');
+var editUserContainer = document.querySelector('.edit_user');
+var closeUserEditZoon = document.querySelector('#closeUserEditZoon');
+userEditZoonBtn === null || userEditZoonBtn === void 0 ? void 0 : userEditZoonBtn.addEventListener('click', function () {
+  editUserContainer.classList.add('showEditUserZoon');
+});
+closeUserEditZoon === null || closeUserEditZoon === void 0 ? void 0 : closeUserEditZoon.addEventListener('click', function () {
+  editUserContainer.classList.remove('showEditUserZoon');
+});
 
 /***/ }),
 
