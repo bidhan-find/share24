@@ -49,12 +49,27 @@ const showOrHidePassword = (className) => {
 showOrHidePassword('.toggle-password');
 showOrHidePassword('.toggle-password2');
 
+// Reset Show & Hide input
+const resetPasswordField = () => {
+    document.querySelector('#eyeIcon').classList.remove('bx-show');
+    const resetToggol = document.querySelectorAll('.password-field');
+    const resetToggol2 = document.querySelectorAll('.password-field2');
+    resetToggol.forEach(ele => {
+        ele.setAttribute('type', 'password')
+    });
+    resetToggol2.forEach(ele => {
+        ele.setAttribute('type', 'password')
+    });
+    document.querySelector('#eyeIcon').classList.add('bx-hide');
+};
+
 /* ---------------- Edit user info ---------------- */
 const userEditZoonBtn = document.querySelector('#userEditZoonBtn');
 const editUserContainer = document.querySelector('.edit_user');
 const closeUserEditZoon = document.querySelector('#closeUserEditZoon');
-const profileImageUpload = document.querySelector('#profileImageUpload');
+const profileImage = document.querySelector('#profileImageUpload');
 const checkPasswordBtn = document.querySelector('#checkPasswordBtn');
+const userUpdateBtn = document.querySelector('#userUpdateBtn');
 
 // Open edit user zoon
 userEditZoonBtn?.addEventListener('click', () => {
@@ -62,12 +77,19 @@ userEditZoonBtn?.addEventListener('click', () => {
 });
 
 // Close edit user zoon
-closeUserEditZoon?.addEventListener('click', () => {
+const closeeditUserZoon = () => {
     editUserContainer.classList.remove('showEditUserZoon');
+    document.querySelector('.check_password').style.display = 'block';
+    document.querySelector('.editUser').style.display = 'none';
+};
+
+closeUserEditZoon?.addEventListener('click', () => {
+    closeeditUserZoon();
 });
 
 // Check password
 checkPasswordBtn?.addEventListener('click', () => {
+    checkPasswordBtn.innerHTML = '<div class="spinner-border text-secondary" role="status"></div>';
     const userPassword = document.querySelector('#userPasswordFild');
     const data = {
         password: userPassword.value
@@ -82,28 +104,76 @@ checkPasswordBtn?.addEventListener('click', () => {
         .then(res => res.json())
         .then(data => {
             userPassword.value = '';
+            resetPasswordField();
             if (data.status) {
                 document.querySelector('.check_password').style.display = 'none';
                 document.querySelector('.editUser').style.display = 'block';
+                checkPasswordBtn.innerHTML = 'Next';
             } else {
-                document.querySelector('.editUserError').innerText = data.message;
+                checkPasswordBtn.innerHTML = 'Next';
+                document.querySelector('.checkPassUserError').innerText = data.message;
             }
         });
 });
 
-// image uoload
-function uploadProfileImage(input) {
-    // Update image preview
+// Update image preview
+function previewProfileImage(input) {
     if (input.files && input.files[0]) {
         const reader = new FileReader();
         reader.onload = function (e) {
-            $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+            $('#imagePreview').attr('src', e.target.result);
             $('#imagePreview').hide();
             $('#imagePreview').fadeIn(650);
             $('.fileName').text(input.files[0].name);
-        }
+        };
         reader.readAsDataURL(input.files[0]);
-    }
-}
+    };
+};
 
-profileImageUpload?.addEventListener('change', () => uploadProfileImage(profileImageUpload));
+// Update user info
+userUpdateBtn?.addEventListener('click', () => {
+    userUpdateBtn.innerHTML = '<div class="spinner-border text-secondary" role="status"></div>';
+    const name = document.querySelector('#name').value;
+    const password = document.querySelector('#password');
+    const confirmPassword = document.querySelector('#confirmPassword');
+    const file = profileImage.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('name', name);
+    formData.append('password', password.value);
+    formData.append('confirmPassword', confirmPassword.value);
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            const data = JSON.parse(xhr.response)
+            console.log(JSON.parse(xhr.response));
+            if (data.user) {
+                closeeditUserZoon();
+                userUpdateBtn.innerHTML = 'Next';
+                document.querySelector('.checkPassUserError').innerText = '';
+                password.value = '';
+                confirmPassword.value = '';
+                resetPasswordField();
+                profileImage.value = '';
+                document.querySelector('.fileName').innerText = '';
+                if (data.user.profileImage !== null) {
+                    document.querySelector('#userEditZoonBtn').src = data.user.profileImage;
+                    document.querySelector('#editZoonProfileImage').src = data.user.profileImage;
+                };
+                new Noty({
+                    type: 'success',
+                    timeout: 3000,
+                    text: 'Item added to cart',
+                    progressBar: false
+                }).show();
+            } else {
+                document.querySelector('.editUserError').innerText = data.message;
+                userUpdateBtn.innerHTML = 'Next';
+            };
+        }
+    };
+    xhr.open('POST', '/user-edit');
+    xhr.send(formData);
+});
+
+profileImage?.addEventListener('change', () => previewProfileImage(profileImage));

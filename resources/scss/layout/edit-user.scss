@@ -31,6 +31,7 @@
             width: 65px;
             height: 65px;
             object-fit: cover;
+            border-radius: 50%;
         }
         h4 {
             font-family: $poppins;
@@ -55,7 +56,8 @@
             font-weight: 500;
             color: $text-gray;
         }
-        .editUserError {
+        .editUserError,
+        .checkPassUserError {
             line-height: 0;
             color: red;
             font-size: 15px;
@@ -111,13 +113,11 @@
                         border-radius: 100%;
                         border: 1px solid #ddd;
                         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-                        div {
+                        img {
                             width: 100%;
                             height: 100%;
                             border-radius: 100%;
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                            background-position: center;
+                            object-fit: cover;
                         }
                     }
                 }
@@ -202,7 +202,7 @@
 
         .editUser {
             margin-top: 0;
-            // display: none;
+            display: none;
             margin-top: -27px;
             .field-wrapper {
                 margin-top: 45px;
@@ -214,9 +214,6 @@
             .submit_btn {
                 margin-top: 33px;
             }
-        }
-        .check_password {
-            display: none;
         }
     }
 }

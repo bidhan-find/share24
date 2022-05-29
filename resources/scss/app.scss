@@ -21,6 +21,8 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 /*--- Import files ---*/
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/mint.scss";
 
 /*--- Variables ---*/
 @import "./global/variables";

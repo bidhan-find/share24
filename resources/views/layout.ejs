@@ -35,7 +35,9 @@
 						<li class="nav-item"><a onclick="document.getElementById('logout').submit()" class="nav-link"
 								href="#">Logout</a></li>
 						<li class="nav-item navbar_profile">
-							<img id="userEditZoonBtn" src="/img/profile.png" alt="Navbar profile">
+							<img id="userEditZoonBtn"
+								src="<%= user.profileImage === null ? '/img/profile.png' : user.profileImage %>"
+								alt="Navbar profile">
 						</li>
 						<% } else{ %>
 							<li class="nav-item"><a class="nav-link login" href="/login">Login</a></li>
@@ -48,10 +50,11 @@
 	</nav>
 
 	<!--*---------------- [4] Edit user ----------------*-->
-	<div class="edit_user showEditUserZoon">
+	<div class="edit_user">
 		<div class="header">
 			<i id="closeUserEditZoon" class='bx bx-x'></i>
-			<img class="profile_img" src="/img/profile.png" alt="">
+			<img class="profile_img" id="editZoonProfileImage" src="<%= user.profileImage === null ? '/img/profile.png' : user.profileImage %>"
+				alt="profile image">
 			<h4>
 				Hello, <%= user?.name %>
 			</h4>
@@ -60,14 +63,16 @@
 		<div class="edit_zoon_body">
 			<div class="form check_password">
 				<p class="title">Enter your password</p>
-				<p class="editUserError"></p>
+				<p class="checkPassUserError"></p>
 				<div class="field-wrapper">
-					<i class='auth_show_pass toggle-password bx bx-hide' toggle="#password-field"></i>
+					<i id="eyeIcon" class='auth_show_pass toggle-password bx bx-hide' toggle=".password-field"></i>
 					<input class="password-field" type="password" id="userPasswordFild" placeholder="Password">
 					<label>Password</label>
 				</div>
 				<div class="submit_btn">
-					<button id="checkPasswordBtn" type="button">Next</button>
+					<button id="checkPasswordBtn" type="button">
+						Next
+					</button>
 				</div>
 			</div>
 			<div class="form editUser">
@@ -80,29 +85,29 @@
 							<label for="profileImageUpload"><i class='bx bxs-camera'></i></label>
 						</div>
 						<div class="avatar-preview">
-							<div id="imagePreview" style="background-image: url(/img/profile.png);">
-							</div>
+							<img id="imagePreview" class="profile_img"
+								src="<%= user.profileImage === null ? '/img/profile.png' : user.profileImage %>"
+								alt="profile image preview">
 						</div>
 					</div>
 					<p class="fileName"></p>
 				</div>
 				<div class="field-wrapper">
-					<input value="<%= user.name %>" type="text" name="name" placeholder="Username">
+					<input value="<%= user?.name %>" type="text" id="name" placeholder="Username">
 					<label>Username</label>
 				</div>
 				<div class="field-wrapper">
-					<i class='auth_show_pass toggle-password bx bx-hide' toggle="#password-field"></i>
-					<input class="password-field" type="password" name="password" placeholder="New password">
+					<i id="eyeIcon" class='auth_show_pass toggle-password bx bx-hide' toggle=".password-field"></i>
+					<input class="password-field" type="password" id="password" placeholder="New password">
 					<label>New password</label>
 				</div>
 				<div class="field-wrapper">
-					<i class='auth_show_pass toggle-password2 bx bx-hide' toggle="#password-field2"></i>
-					<input class="password-field2" type="password" name="confirmPassword"
-						placeholder="Confirm Password">
+					<i id="eyeIcon" class='auth_show_pass toggle-password2 bx bx-hide' toggle=".password-field2"></i>
+					<input class="password-field2" type="password" id="confirmPassword" placeholder="Confirm Password">
 					<label>Confirm Password</label>
 				</div>
 				<div class="submit_btn">
-					<button type="submit">Next</button>
+					<button id="userUpdateBtn">Next</button>
 				</div>
 			</div>
 		</div>

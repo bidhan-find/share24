@@ -65,24 +65,46 @@ var showOrHidePassword = function showOrHidePassword(className) {
 };
 
 showOrHidePassword('.toggle-password');
-showOrHidePassword('.toggle-password2');
+showOrHidePassword('.toggle-password2'); // Reset Show & Hide input
+
+var resetPasswordField = function resetPasswordField() {
+  document.querySelector('#eyeIcon').classList.remove('bx-show');
+  var resetToggol = document.querySelectorAll('.password-field');
+  var resetToggol2 = document.querySelectorAll('.password-field2');
+  resetToggol.forEach(function (ele) {
+    ele.setAttribute('type', 'password');
+  });
+  resetToggol2.forEach(function (ele) {
+    ele.setAttribute('type', 'password');
+  });
+  document.querySelector('#eyeIcon').classList.add('bx-hide');
+};
 /* ---------------- Edit user info ---------------- */
+
 
 var userEditZoonBtn = document.querySelector('#userEditZoonBtn');
 var editUserContainer = document.querySelector('.edit_user');
 var closeUserEditZoon = document.querySelector('#closeUserEditZoon');
-var profileImageUpload = document.querySelector('#profileImageUpload');
-var checkPasswordBtn = document.querySelector('#checkPasswordBtn'); // Open edit user zoon
+var profileImage = document.querySelector('#profileImageUpload');
+var checkPasswordBtn = document.querySelector('#checkPasswordBtn');
+var userUpdateBtn = document.querySelector('#userUpdateBtn'); // Open edit user zoon
 
 userEditZoonBtn === null || userEditZoonBtn === void 0 ? void 0 : userEditZoonBtn.addEventListener('click', function () {
   editUserContainer.classList.add('showEditUserZoon');
 }); // Close edit user zoon
 
-closeUserEditZoon === null || closeUserEditZoon === void 0 ? void 0 : closeUserEditZoon.addEventListener('click', function () {
+var closeeditUserZoon = function closeeditUserZoon() {
   editUserContainer.classList.remove('showEditUserZoon');
+  document.querySelector('.check_password').style.display = 'block';
+  document.querySelector('.editUser').style.display = 'none';
+};
+
+closeUserEditZoon === null || closeUserEditZoon === void 0 ? void 0 : closeUserEditZoon.addEventListener('click', function () {
+  closeeditUserZoon();
 }); // Check password
 
 checkPasswordBtn === null || checkPasswordBtn === void 0 ? void 0 : checkPasswordBtn.addEventListener('click', function () {
+  checkPasswordBtn.innerHTML = '<div class="spinner-border text-secondary" role="status"></div>';
   var userPassword = document.querySelector('#userPasswordFild');
   var data = {
     password: userPassword.value
@@ -97,23 +119,25 @@ checkPasswordBtn === null || checkPasswordBtn === void 0 ? void 0 : checkPasswor
     return res.json();
   }).then(function (data) {
     userPassword.value = '';
+    resetPasswordField();
 
     if (data.status) {
       document.querySelector('.check_password').style.display = 'none';
       document.querySelector('.editUser').style.display = 'block';
+      checkPasswordBtn.innerHTML = 'Next';
     } else {
-      document.querySelector('.editUserError').innerText = data.message;
+      checkPasswordBtn.innerHTML = 'Next';
+      document.querySelector('.checkPassUserError').innerText = data.message;
     }
   });
-}); // image uoload
+}); // Update image preview
 
-function uploadProfileImage(input) {
-  // Update image preview
+function previewProfileImage(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+      $('#imagePreview').attr('src', e.target.result);
       $('#imagePreview').hide();
       $('#imagePreview').fadeIn(650);
       $('.fileName').text(input.files[0].name);
@@ -121,10 +145,66 @@ function uploadProfileImage(input) {
 
     reader.readAsDataURL(input.files[0]);
   }
+
+  ;
 }
 
-profileImageUpload === null || profileImageUpload === void 0 ? void 0 : profileImageUpload.addEventListener('change', function () {
-  return uploadProfileImage(profileImageUpload);
+; // Update user info
+
+userUpdateBtn === null || userUpdateBtn === void 0 ? void 0 : userUpdateBtn.addEventListener('click', function () {
+  userUpdateBtn.innerHTML = '<div class="spinner-border text-secondary" role="status"></div>';
+  var name = document.querySelector('#name').value;
+  var password = document.querySelector('#password');
+  var confirmPassword = document.querySelector('#confirmPassword');
+  var file = profileImage.files[0];
+  var formData = new FormData();
+  formData.append('image', file);
+  formData.append('name', name);
+  formData.append('password', password.value);
+  formData.append('confirmPassword', confirmPassword.value);
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      var data = JSON.parse(xhr.response);
+      console.log(JSON.parse(xhr.response));
+
+      if (data.user) {
+        closeeditUserZoon();
+        userUpdateBtn.innerHTML = 'Next';
+        document.querySelector('.checkPassUserError').innerText = '';
+        password.value = '';
+        confirmPassword.value = '';
+        resetPasswordField();
+        profileImage.value = '';
+        document.querySelector('.fileName').innerText = '';
+
+        if (data.user.profileImage !== null) {
+          document.querySelector('#userEditZoonBtn').src = data.user.profileImage;
+          document.querySelector('#editZoonProfileImage').src = data.user.profileImage;
+        }
+
+        ;
+        new Noty({
+          type: 'success',
+          timeout: 3000,
+          text: 'Item added to cart',
+          progressBar: false
+        }).show();
+      } else {
+        document.querySelector('.editUserError').innerText = data.message;
+        userUpdateBtn.innerHTML = 'Next';
+      }
+
+      ;
+    }
+  };
+
+  xhr.open('POST', '/user-edit');
+  xhr.send(formData);
+});
+profileImage === null || profileImage === void 0 ? void 0 : profileImage.addEventListener('change', function () {
+  return previewProfileImage(profileImage);
 });
 
 /***/ }),

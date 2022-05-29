@@ -20,23 +20,21 @@
                 <% } %>
                     <form action="/register" method="POST">
                         <div class="field-wrapper">
-                            <input type="text" name="name" value="<%= messages.name %>" placeholder="Username"
-                                autocomplete="off">
+                            <input type="text" name="name" value="<%= messages.name %>" placeholder="Username">
                             <label>Username</label>
                         </div>
                         <div class="field-wrapper">
-                            <input type="email" name="email" value="<%= messages.email %>" placeholder="Email"
-                                autocomplete="off">
+                            <input type="email" name="email" value="<%= messages.email %>" placeholder="Email">
                             <label>Email</label>
                         </div>
                         <div class="field-wrapper">
-                            <i class='auth_show_pass toggle-password bx bx-hide' toggle="#password-field"></i>
+                            <i id="eyeIcon" class='auth_show_pass toggle-password bx bx-hide' toggle=".password-field"></i>
                             <input class="password-field" value="<%= messages.password %>" type="password"
                                 name="password" placeholder="Password">
                             <label>Password</label>
                         </div>
                         <div class="field-wrapper">
-                            <i class='auth_show_pass toggle-password2 bx bx-hide' toggle="#password-field2"></i>
+                            <i id="eyeIcon" class='auth_show_pass toggle-password2 bx bx-hide' toggle=".password-field2"></i>
                             <input class="password-field2" value="<%= messages.confirmPassword %>" type="password"
                                 name="confirmPassword" placeholder="Confirm Password">
                             <label>Confirm Password</label>
