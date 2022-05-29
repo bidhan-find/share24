@@ -19,7 +19,7 @@ function initRoutes(app) {
     app.post('/logout', authController().logout);
     app.get('/register', guest, authController().registerPage);
     app.post('/register', authController().register);
-    app.post('/user/edit/check-password', userController().checkPassword);
+    app.post('/user-edit/check-password', userController().checkPassword);
 };
 
 module.exports = initRoutes;

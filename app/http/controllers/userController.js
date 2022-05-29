@@ -12,7 +12,7 @@ function userController() {
             bcrypt
                 .compare(password, user.password)
                 .then(match => {
-                    if (!match) return res.status(404).json({ message: 'Password not match', status: match });
+                    if (!match) return res.status(404).json({ message: 'Your password is wrong', status: match });
                     return res.status(200).json({ message: 'Password match', status: match })
                 })
                 .catch(() => {

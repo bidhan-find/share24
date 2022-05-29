@@ -1,3 +1,4 @@
+/* eslint-disable space-before-function-paren */
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
 /* eslint-disable indent */
@@ -52,11 +53,57 @@ showOrHidePassword('.toggle-password2');
 const userEditZoonBtn = document.querySelector('#userEditZoonBtn');
 const editUserContainer = document.querySelector('.edit_user');
 const closeUserEditZoon = document.querySelector('#closeUserEditZoon');
+const profileImageUpload = document.querySelector('#profileImageUpload');
+const checkPasswordBtn = document.querySelector('#checkPasswordBtn');
 
+// Open edit user zoon
 userEditZoonBtn?.addEventListener('click', () => {
     editUserContainer.classList.add('showEditUserZoon');
 });
 
+// Close edit user zoon
 closeUserEditZoon?.addEventListener('click', () => {
     editUserContainer.classList.remove('showEditUserZoon');
 });
+
+// Check password
+checkPasswordBtn?.addEventListener('click', () => {
+    const userPassword = document.querySelector('#userPasswordFild');
+    const data = {
+        password: userPassword.value
+    };
+    fetch('/user-edit/check-password', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .then(data => {
+            userPassword.value = '';
+            if (data.status) {
+                document.querySelector('.check_password').style.display = 'none';
+                document.querySelector('.editUser').style.display = 'block';
+            } else {
+                document.querySelector('.editUserError').innerText = data.message;
+            }
+        });
+});
+
+// image uoload
+function uploadProfileImage(input) {
+    // Update image preview
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+            $('.fileName').text(input.files[0].name);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+profileImageUpload?.addEventListener('change', () => uploadProfileImage(profileImageUpload));

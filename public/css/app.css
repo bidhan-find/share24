@@ -657,6 +657,188 @@ section.auth .auth_container form a.auth_link {
      object-position: 42% 50%;
   width: 100%;
 }
+.edit_user .edit_zoon_body {
+  padding: 28px;
+}
+.edit_user .edit_zoon_body .title {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #6b6b6b;
+}
+.edit_user .edit_zoon_body .editUserError {
+  line-height: 0;
+  color: red;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 32px;
+}
+.edit_user .edit_zoon_body .form {
+  margin-top: 40px;
+}
+.edit_user .edit_zoon_body .form .image_upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit_user .edit_zoon_body .form .image_upload .avatar-upload {
+  position: relative;
+  max-width: 205px;
+  text-align: -webkit-center;
+}
+.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit {
+  position: absolute;
+  right: -5px;
+  z-index: 1;
+  top: 44px;
+}
+.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit input {
+  display: none;
+}
+.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #fafafa;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit input + label i {
+  color: #f9b544;
+  position: relative;
+  top: 3px;
+}
+.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-preview {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  border-radius: 100%;
+  border: 1px solid #ddd;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-preview div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.edit_user .edit_zoon_body .form .image_upload .fileName {
+  margin-left: 14px;
+}
+.edit_user .edit_zoon_body .form .field-wrapper {
+  margin-top: 50px;
+  position: relative;
+}
+.edit_user .edit_zoon_body .form .field-wrapper label {
+  position: absolute;
+  pointer-events: none;
+  font-size: 16px;
+  font-weight: 500;
+  top: 40%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all ease-in 0.25s;
+  color: #999999;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text],
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:focus,
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:focus {
+  outline: none;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text],
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password] {
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  border: none;
+  background: transparent;
+  line-height: 2em;
+  border-bottom: 2px solid #f9b544;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text]::-webkit-input-placeholder,
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password]::-webkit-input-placeholder {
+  opacity: 0;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text]::-moz-placeholder,
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password]::-moz-placeholder {
+  opacity: 0;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:-ms-input-placeholder,
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:-ms-input-placeholder {
+  opacity: 0;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:-moz-placeholder,
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:-moz-placeholder {
+  opacity: 0;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:not(:-moz-placeholder-shown) + label, .edit_user .edit_zoon_body .form .field-wrapper input[type=password]:not(:-moz-placeholder-shown) + label {
+  top: -35%;
+  color: #f9b544;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:not(:-ms-input-placeholder) + label, .edit_user .edit_zoon_body .form .field-wrapper input[type=password]:not(:-ms-input-placeholder) + label {
+  top: -35%;
+  color: #f9b544;
+}
+.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:focus + label, .edit_user .edit_zoon_body .form .field-wrapper input[type=text]:not(:placeholder-shown) + label,
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:focus + label,
+.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:not(:placeholder-shown) + label {
+  top: -35%;
+  color: #f9b544;
+}
+.edit_user .edit_zoon_body .form .submit_btn {
+  margin-top: 46px;
+}
+.edit_user .edit_zoon_body .form .submit_btn button {
+  width: 100%;
+  border: none;
+  background-color: #f9b544;
+  color: white;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.edit_user .edit_zoon_body .form .auth_show_pass {
+  position: absolute;
+  right: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #f9b544;
+}
+.edit_user .edit_zoon_body .editUser {
+  margin-top: 0;
+  margin-top: -27px;
+}
+.edit_user .edit_zoon_body .editUser .field-wrapper {
+  margin-top: 45px;
+  position: relative;
+}
+.edit_user .edit_zoon_body .editUser .editUserError {
+  margin: 28px 0;
+}
+.edit_user .edit_zoon_body .editUser .submit_btn {
+  margin-top: 33px;
+}
+.edit_user .edit_zoon_body .check_password {
+  display: none;
+}
 
 /*---------------- [**] Footer ----------------*/
 footer {

@@ -7,6 +7,8 @@
   \*****************************/
 /***/ (() => {
 
+/* eslint-disable space-before-function-paren */
+
 /* eslint-disable no-undef */
 
 /* eslint-disable camelcase */
@@ -69,11 +71,60 @@ showOrHidePassword('.toggle-password2');
 var userEditZoonBtn = document.querySelector('#userEditZoonBtn');
 var editUserContainer = document.querySelector('.edit_user');
 var closeUserEditZoon = document.querySelector('#closeUserEditZoon');
+var profileImageUpload = document.querySelector('#profileImageUpload');
+var checkPasswordBtn = document.querySelector('#checkPasswordBtn'); // Open edit user zoon
+
 userEditZoonBtn === null || userEditZoonBtn === void 0 ? void 0 : userEditZoonBtn.addEventListener('click', function () {
   editUserContainer.classList.add('showEditUserZoon');
-});
+}); // Close edit user zoon
+
 closeUserEditZoon === null || closeUserEditZoon === void 0 ? void 0 : closeUserEditZoon.addEventListener('click', function () {
   editUserContainer.classList.remove('showEditUserZoon');
+}); // Check password
+
+checkPasswordBtn === null || checkPasswordBtn === void 0 ? void 0 : checkPasswordBtn.addEventListener('click', function () {
+  var userPassword = document.querySelector('#userPasswordFild');
+  var data = {
+    password: userPassword.value
+  };
+  fetch('/user-edit/check-password', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    userPassword.value = '';
+
+    if (data.status) {
+      document.querySelector('.check_password').style.display = 'none';
+      document.querySelector('.editUser').style.display = 'block';
+    } else {
+      document.querySelector('.editUserError').innerText = data.message;
+    }
+  });
+}); // image uoload
+
+function uploadProfileImage(input) {
+  // Update image preview
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+      $('#imagePreview').hide();
+      $('#imagePreview').fadeIn(650);
+      $('.fileName').text(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+profileImageUpload === null || profileImageUpload === void 0 ? void 0 : profileImageUpload.addEventListener('change', function () {
+  return uploadProfileImage(profileImageUpload);
 });
 
 /***/ }),
