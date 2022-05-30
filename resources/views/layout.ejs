@@ -17,7 +17,7 @@
 	<title>Share24 - File sharing app</title>
 </head>
 
-<body>
+<body id="body">
 
 	<!--*---------------- [1] Navbar ----------------*-->
 	<nav class="autohide navbar navbar-expand-lg navbar-dark main_navbar">
@@ -53,8 +53,8 @@
 	<div class="edit_user">
 		<div class="header">
 			<i id="closeUserEditZoon" class='bx bx-x'></i>
-			<img class="profile_img" id="editZoonProfileImage" src="<%= user.profileImage === null ? '/img/profile.png' : user.profileImage %>"
-				alt="profile image">
+			<img class="profile_img" id="editZoonProfileImage"
+				src="<%= user.profileImage === null ? '/img/profile.png' : user.profileImage %>" alt="profile image">
 			<h4>
 				Hello, <%= user?.name %>
 			</h4>
@@ -116,7 +116,7 @@
 	<%- body %>
 
 		<!--*---------------- [**] Footer ----------------*-->
-		<!-- <footer>
+		<footer>
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3 footer_border_r">
@@ -172,7 +172,7 @@
 					</div>
 				</div>
 			</div>
-		</footer> -->
+		</footer>
 		<!-- Required JS plugins -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js"
 			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

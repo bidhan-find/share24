@@ -8,7 +8,11 @@
 
 body {
     background-color: $primary-bg;
-    overflow: hidden;
+    overflow-x: hidden;
+}
+
+.overFlow {
+    overflow: hidden !important;
 }
 
 .spinner-border {
@@ -19,6 +23,9 @@ body {
 .noty_theme__mint {
     border-radius: 50px !important;
     padding-left: 8px !important;
+}
+.cc {
+    height: 100vh;
 }
 
 /*--- Typography ---*/

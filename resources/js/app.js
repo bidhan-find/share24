@@ -11,11 +11,13 @@ Support           : bidhandev.d@gmail.com
 MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 */
 
+import Noty from 'noty';
+
 /* ---------------- Navbar ---------------- */
 document.addEventListener('DOMContentLoaded', function () {
-    el_autohide = document.querySelector('.autohide');
+    const el_autohide = document.querySelector('.autohide');
     // add padding-top to bady (if necessary)
-    navbar_height = document.querySelector('.navbar').offsetHeight;
+    const navbar_height = document.querySelector('.navbar').offsetHeight;
     document.body.style.paddingTop = navbar_height + 'px';
     if (el_autohide) {
         let last_scroll_top = 0;
@@ -64,6 +66,7 @@ const resetPasswordField = () => {
 };
 
 /* ---------------- Edit user info ---------------- */
+const body = document.querySelector('#body');
 const userEditZoonBtn = document.querySelector('#userEditZoonBtn');
 const editUserContainer = document.querySelector('.edit_user');
 const closeUserEditZoon = document.querySelector('#closeUserEditZoon');
@@ -73,6 +76,7 @@ const userUpdateBtn = document.querySelector('#userUpdateBtn');
 
 // Open edit user zoon
 userEditZoonBtn?.addEventListener('click', () => {
+    body.classList.add('overFlow');
     editUserContainer.classList.add('showEditUserZoon');
 });
 
@@ -81,6 +85,7 @@ const closeeditUserZoon = () => {
     editUserContainer.classList.remove('showEditUserZoon');
     document.querySelector('.check_password').style.display = 'block';
     document.querySelector('.editUser').style.display = 'none';
+    body.classList.remove('overFlow');
 };
 
 closeUserEditZoon?.addEventListener('click', () => {
@@ -112,6 +117,12 @@ checkPasswordBtn?.addEventListener('click', () => {
             } else {
                 checkPasswordBtn.innerHTML = 'Next';
                 document.querySelector('.checkPassUserError').innerText = data.message;
+                new Noty({
+                    type: 'error',
+                    timeout: 1000,
+                    text: 'Something went wrong',
+                    progressBar: false
+                }).show();
             }
         });
 });
@@ -163,12 +174,18 @@ userUpdateBtn?.addEventListener('click', () => {
                 new Noty({
                     type: 'success',
                     timeout: 3000,
-                    text: 'Item added to cart',
+                    text: 'User info has been successfully updated.',
                     progressBar: false
                 }).show();
             } else {
-                document.querySelector('.editUserError').innerText = data.message;
+                document.querySelector('.editUserError').innerText = data.error;
                 userUpdateBtn.innerHTML = 'Next';
+                new Noty({
+                    type: 'error',
+                    timeout: 1000,
+                    text: 'Something went wrong',
+                    progressBar: false
+                }).show();
             };
         }
     };
