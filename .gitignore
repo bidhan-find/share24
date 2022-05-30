@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
 .env
-**/app/config/.firebase-adminsdk.json
+**/app/config/firebase-adminsdk.json
