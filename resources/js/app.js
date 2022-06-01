@@ -13,6 +13,18 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 
 import Noty from 'noty';
 
+/* ---------------- Auto focus input ---------------- */
+setTimeout(function () {
+    $('#email').focus();
+    $('#username').focus();
+}, 400);
+
+document.getElementById('homeShareModal').addEventListener('click', () => {
+    setTimeout(function () {
+        $('#sendMail').focus();
+    }, 600);
+})
+
 /* ---------------- Navbar ---------------- */
 document.addEventListener('DOMContentLoaded', function () {
     const el_autohide = document.querySelector('.autohide');
@@ -78,6 +90,9 @@ const userUpdateBtn = document.querySelector('#userUpdateBtn');
 userEditZoonBtn?.addEventListener('click', () => {
     body.classList.add('overFlow');
     editUserContainer.classList.add('showEditUserZoon');
+    setTimeout(function () {
+        $('#userPasswordFild').focus();
+    }, 400);
 });
 
 // Close edit user zoon
@@ -114,6 +129,9 @@ checkPasswordBtn?.addEventListener('click', () => {
                 document.querySelector('.check_password').style.display = 'none';
                 document.querySelector('.editUser').style.display = 'block';
                 checkPasswordBtn.innerHTML = 'Next';
+                setTimeout(function () {
+                    $('#password').focus();
+                }, 400);
             } else {
                 checkPasswordBtn.innerHTML = 'Next';
                 document.querySelector('.checkPassUserError').innerText = data.message;
@@ -123,6 +141,9 @@ checkPasswordBtn?.addEventListener('click', () => {
                     text: 'Something went wrong',
                     progressBar: false
                 }).show();
+                setTimeout(function () {
+                    $('#userPasswordFild').focus();
+                }, 400);
             }
         });
 });

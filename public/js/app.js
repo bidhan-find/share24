@@ -29,6 +29,17 @@ Support           : bidhandev.d@gmail.com
 MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 */
 
+/* ---------------- Auto focus input ---------------- */
+
+setTimeout(function () {
+  $('#email').focus();
+  $('#username').focus();
+}, 400);
+document.getElementById('homeShareModal').addEventListener('click', function () {
+  setTimeout(function () {
+    $('#sendMail').focus();
+  }, 600);
+});
 /* ---------------- Navbar ---------------- */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -98,6 +109,9 @@ var userUpdateBtn = document.querySelector('#userUpdateBtn'); // Open edit user 
 userEditZoonBtn === null || userEditZoonBtn === void 0 ? void 0 : userEditZoonBtn.addEventListener('click', function () {
   body.classList.add('overFlow');
   editUserContainer.classList.add('showEditUserZoon');
+  setTimeout(function () {
+    $('#userPasswordFild').focus();
+  }, 400);
 }); // Close edit user zoon
 
 var closeeditUserZoon = function closeeditUserZoon() {
@@ -133,6 +147,9 @@ checkPasswordBtn === null || checkPasswordBtn === void 0 ? void 0 : checkPasswor
       document.querySelector('.check_password').style.display = 'none';
       document.querySelector('.editUser').style.display = 'block';
       checkPasswordBtn.innerHTML = 'Next';
+      setTimeout(function () {
+        $('#password').focus();
+      }, 400);
     } else {
       checkPasswordBtn.innerHTML = 'Next';
       document.querySelector('.checkPassUserError').innerText = data.message;
@@ -142,6 +159,9 @@ checkPasswordBtn === null || checkPasswordBtn === void 0 ? void 0 : checkPasswor
         text: 'Something went wrong',
         progressBar: false
       }).show();
+      setTimeout(function () {
+        $('#userPasswordFild').focus();
+      }, 400);
     }
   });
 }); // Update image preview

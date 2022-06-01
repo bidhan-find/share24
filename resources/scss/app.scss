@@ -14,6 +14,7 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 2. Landing page / section.landing_page
 3. Auth page / section.auth
 4. Edit user / edit_user
+5. Home page / .home_page
 **. Footer / footer
 
 */
@@ -45,8 +46,11 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 /*---------------- [3] Auth page ----------------*/
 @import "./pages/auth.scss";
 
-/*---------------- [4] Auth page ----------------*/
+/*---------------- [4] Edit user ----------------*/
 @import "./layout/edit-user.scss";
+
+/*---------------- [5] Home page ----------------*/
+@import "./pages/home-page.scss";
 
 /*---------------- [**] Footer ----------------*/
 @import "./layout/footer.scss";

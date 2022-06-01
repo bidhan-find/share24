@@ -36,7 +36,7 @@
 								href="#">Logout</a></li>
 						<li class="nav-item navbar_profile">
 							<img id="userEditZoonBtn"
-								src="<%= user.profileImage === null ? '/img/profile.png' : user.profileImage %>"
+								src="<%= user?.profileImage === null ? '/img/profile.png' : user?.profileImage %>"
 								alt="Navbar profile">
 						</li>
 						<% } else{ %>
@@ -54,7 +54,7 @@
 		<div class="header">
 			<i id="closeUserEditZoon" class='bx bx-x'></i>
 			<img class="profile_img" id="editZoonProfileImage"
-				src="<%= user.profileImage === null ? '/img/profile.png' : user.profileImage %>" alt="profile image">
+				src="<%= user?.profileImage === null ? '/img/profile.png' : user?.profileImage %>" alt="profile image">
 			<h4>
 				Hello, <%= user?.name %>
 			</h4>
@@ -86,7 +86,7 @@
 						</div>
 						<div class="avatar-preview">
 							<img id="imagePreview" class="profile_img"
-								src="<%= user.profileImage === null ? '/img/profile.png' : user.profileImage %>"
+								src="<%= user?.profileImage === null ? '/img/profile.png' : user?.profileImage %>"
 								alt="profile image preview">
 						</div>
 					</div>
@@ -176,6 +176,9 @@
 		<!-- Required JS plugins -->
 		<script src="https://code.jquery.com/jquery-3.6.0.js"
 			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+			integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+			crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
 			crossorigin="anonymous"></script>
 		<script src="/js/app.js"></script>

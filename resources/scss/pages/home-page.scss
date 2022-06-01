@@ -1,0 +1,172 @@
+.home_page {
+    padding-top: 40px;
+
+    .file_table {
+        margin-top: 24px;
+        background-color: $pure;
+        box-shadow: $box-shadow;
+        padding: 14px;
+        border-radius: 14px;
+        font-family: $poppins;
+        th,
+        td {
+            font-size: 14px;
+        }
+        .ext {
+            background-color: #c6c6ed;
+            color: $pure;
+            padding: 4px;
+            font-size: 9px;
+            border-radius: 3px;
+            margin-right: 9px;
+            position: relative;
+            top: -1px;
+        }
+        tr:nth-child(2) .file_name_td .ext {
+            background-color: #ffb7b7;
+        }
+        tr:nth-child(3) .file_name_td .ext {
+            background-color: #f6a1f8;
+        }
+        tr:nth-child(4) .file_name_td .ext {
+            background-color: #98a1f9;
+        }
+        tr:nth-child(5) .file_name_td .ext {
+            background-color: #f6d595;
+        }
+        tr:nth-child(6) .file_name_td .ext {
+            background-color: #f8b57a;
+        }
+        tr:nth-child(7) .file_name_td .ext {
+            background-color: #85e4d5;
+        }
+        tr:nth-child(8) .file_name_td .ext {
+            background-color: #9ac4b0;
+        }
+        tr:nth-child(9) .file_name_td .ext {
+            background-color: #c4bc9a;
+        }
+        tr:nth-child(10) .file_name_td .ext {
+            background-color: #c49a9a;
+        }
+        i.bx.bx-dots-horizontal-rounded {
+            font-size: 19px;
+            cursor: pointer;
+        }
+        .file_name {
+            word-break: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-height: 21px;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            width: 180px;
+        }
+
+        .file_name_td {
+            display: -webkit-box;
+            margin-right: -35px;
+        }
+
+        .dropdown-item {
+            font-size: 14px;
+            margin-bottom: 5px;
+            transition: all $smooth;
+            i {
+                font-size: 18px;
+                position: relative;
+                top: 3px;
+                left: -3px;
+            }
+
+            i.bx.bx-cloud-download {
+                color: #03d603;
+            }
+            i.bx.bx-share-alt {
+                color: #5252f5;
+            }
+            i.bx.bxs-trash {
+                color: #f34848;
+            }
+
+            &:hover {
+                background-color: $primary-color;
+                color: $pure;
+            }
+        }
+    }
+
+    /* modal */
+    .modal-content {
+        border-radius: 14px;
+        box-shadow: $box-shadow;
+        border: 1px solid #d8d8d833;
+        .modal_header {
+            display: flex;
+            justify-content: space-between;
+            font-family: $poppins;
+            h5 {
+                font-size: 19px;
+            }
+            i.bx.bx-x {
+                font-size: 30px;
+                color: #ec6767;
+            }
+        }
+
+        .modal_fileInfo {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            img {
+                width: 150px;
+                border-radius: 7px;
+            }
+            .file_info {
+                margin-left: 34px;
+                h6 {
+                    word-break: break-word;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    line-height: 21px;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                    width: 230px;
+                    color: $text-gray;
+                }
+                .file_type {
+                    display: flex;
+                    p {
+                        line-height: 0;
+                        margin-top: 14px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        span {
+                            color: $text-gray;
+                        }
+                    }
+                    p:last-child {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+
+        .form {
+            .field-wrapper {
+                margin-top: 40px;
+            }
+            .submit_btn {
+                margin-top: 26px;
+                text-align: center;
+                button {
+                    width: auto;
+                    padding: 7px 26px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

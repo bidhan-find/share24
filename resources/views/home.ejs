@@ -1,8 +1,107 @@
 <!--*---------------- [2] Landing page ----------------*-->
 <!-- Change home page after login -->
 <% if(user){ %>
-    <div class="cc">Home page</div>
-    
+    <section class="home_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h5>Recent added files</h4>
+                        <div class="file_table">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Size</th>
+                                        <th scope="col">Last Modified</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="file_name_td">
+                                            <span class="ext">PDF</span>
+                                            <span class="file_name">Brande.pdf</span>
+                                        </td>
+                                        <td>42 MB</td>
+                                        <td>Aug 26, 2020</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <i class='bx bx-dots-horizontal-rounded' role="button"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                                    id="dropdownMenuLink"></i>
+
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class='bx bx-cloud-download'></i> Download
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="homeShareModal" class="dropdown-item" href="#"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#recentFileShareModal">
+                                                            <i class='bx bx-share-alt'></i> Share
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class='bx bxs-trash'></i> Delete
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  <div class="modal fade show" id="recentFileShareModal" tabindex="-1" aria-labelledby="recentFileShareModalLabel"
+            style="padding-right: 17px; display: block;" aria-modal="true" role="dialog"> -->
+        <!-- Recent file share modal -->
+        <div class="modal fade show" id="recentFileShareModal" tabindex="-1" aria-labelledby="recentFileShareModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="modal_header">
+                            <h5>Share this file with email.</h5>
+                            <i class='bx bx-x' type="button" data-bs-dismiss="modal" aria-label="Close"></i>
+                        </div>
+
+                        <div class="modal_fileInfo">
+                            <img src="/img/img-1.jpeg" alt="">
+
+                            <div class="file_info">
+                                <h6>nameRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR</h6>
+                                <div class="file_type">
+                                    <p><span>Type: </span>JPG</p>
+                                    <p><span>Size: </span>3MB</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form">
+                            <p class="title">Enter receiver email</p>
+                            <div class="field-wrapper">
+                                <input id='sendMail' type="email" placeholder="Email address" autofocus>
+                                <label>Email address</label>
+                            </div>
+                            <div class="submit_btn">
+                                <button type="button">Send</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="cc"></div>
     <% } else{ %>
         <section class="landing_page">
             <div class="titles">

@@ -15,6 +15,7 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 2. Landing page / section.landing_page
 3. Auth page / section.auth
 4. Edit user / edit_user
+5. Home page / .home_page
 **. Footer / footer
 
 */
@@ -901,7 +902,7 @@ section.auth .auth_container form a.auth_link {
   font-weight: 500;
 }
 
-/*---------------- [4] Auth page ----------------*/
+/*---------------- [4] Edit user ----------------*/
 .showEditUserZoon {
   transform: translateX(0px) !important;
 }
@@ -973,153 +974,6 @@ section.auth .auth_container form a.auth_link {
   text-align: center;
   margin-top: 32px;
 }
-.edit_user .edit_zoon_body .form {
-  margin-top: 40px;
-}
-.edit_user .edit_zoon_body .form .image_upload {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.edit_user .edit_zoon_body .form .image_upload .avatar-upload {
-  position: relative;
-  max-width: 205px;
-  text-align: -webkit-center;
-}
-.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit {
-  position: absolute;
-  right: -5px;
-  z-index: 1;
-  top: 44px;
-}
-.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit input {
-  display: none;
-}
-.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit input + label {
-  display: inline-block;
-  width: 29px;
-  height: 29px;
-  margin-bottom: 0;
-  border-radius: 100%;
-  background: #fafafa;
-  border: 1px solid transparent;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-  font-weight: normal;
-  transition: all 0.2s ease-in-out;
-}
-.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit input + label i {
-  color: #f9b544;
-  position: relative;
-  top: 3px;
-}
-.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-edit input + label:hover {
-  background: #f1f1f1;
-  border-color: #d6d6d6;
-}
-.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-preview {
-  width: 70px;
-  height: 70px;
-  position: relative;
-  border-radius: 100%;
-  border: 1px solid #ddd;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-.edit_user .edit_zoon_body .form .image_upload .avatar-upload .avatar-preview img {
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.edit_user .edit_zoon_body .form .image_upload .fileName {
-  margin-left: 14px;
-}
-.edit_user .edit_zoon_body .form .field-wrapper {
-  margin-top: 50px;
-  position: relative;
-}
-.edit_user .edit_zoon_body .form .field-wrapper label {
-  position: absolute;
-  pointer-events: none;
-  font-size: 16px;
-  font-weight: 500;
-  top: 40%;
-  left: 0;
-  transform: translateY(-50%);
-  transition: all ease-in 0.25s;
-  color: #999999;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text],
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:focus,
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:focus {
-  outline: none;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text],
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password] {
-  font-size: 16px;
-  font-weight: 500;
-  width: 100%;
-  border: none;
-  background: transparent;
-  line-height: 2em;
-  border-bottom: 2px solid #f9b544;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text]::-webkit-input-placeholder,
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password]::-webkit-input-placeholder {
-  opacity: 0;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text]::-moz-placeholder,
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password]::-moz-placeholder {
-  opacity: 0;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:-ms-input-placeholder,
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:-ms-input-placeholder {
-  opacity: 0;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:-moz-placeholder,
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:-moz-placeholder {
-  opacity: 0;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:not(:-moz-placeholder-shown) + label, .edit_user .edit_zoon_body .form .field-wrapper input[type=password]:not(:-moz-placeholder-shown) + label {
-  top: -35%;
-  color: #f9b544;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:not(:-ms-input-placeholder) + label, .edit_user .edit_zoon_body .form .field-wrapper input[type=password]:not(:-ms-input-placeholder) + label {
-  top: -35%;
-  color: #f9b544;
-}
-.edit_user .edit_zoon_body .form .field-wrapper input[type=text]:focus + label, .edit_user .edit_zoon_body .form .field-wrapper input[type=text]:not(:placeholder-shown) + label,
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:focus + label,
-.edit_user .edit_zoon_body .form .field-wrapper input[type=password]:not(:placeholder-shown) + label {
-  top: -35%;
-  color: #f9b544;
-}
-.edit_user .edit_zoon_body .form .submit_btn {
-  margin-top: 46px;
-}
-.edit_user .edit_zoon_body .form .submit_btn button {
-  width: 100%;
-  border: none;
-  background-color: #f9b544;
-  color: white;
-  padding: 10px 0;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 6px;
-}
-.edit_user .edit_zoon_body .form .auth_show_pass {
-  position: absolute;
-  right: 10px;
-  font-size: 22px;
-  cursor: pointer;
-  color: #f9b544;
-}
 .edit_user .edit_zoon_body .editUser {
   margin-top: 0;
   display: none;
@@ -1134,6 +988,327 @@ section.auth .auth_container form a.auth_link {
 }
 .edit_user .edit_zoon_body .editUser .submit_btn {
   margin-top: 33px;
+}
+
+.form {
+  margin-top: 40px;
+}
+.form .image_upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form .image_upload .avatar-upload {
+  position: relative;
+  max-width: 205px;
+  text-align: -webkit-center;
+}
+.form .image_upload .avatar-upload .avatar-edit {
+  position: absolute;
+  right: -5px;
+  z-index: 1;
+  top: 44px;
+}
+.form .image_upload .avatar-upload .avatar-edit input {
+  display: none;
+}
+.form .image_upload .avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #fafafa;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.form .image_upload .avatar-upload .avatar-edit input + label i {
+  color: #f9b544;
+  position: relative;
+  top: 3px;
+}
+.form .image_upload .avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.form .image_upload .avatar-upload .avatar-preview {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  border-radius: 100%;
+  border: 1px solid #ddd;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.form .image_upload .avatar-upload .avatar-preview img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.form .image_upload .fileName {
+  margin-left: 14px;
+}
+.form .field-wrapper {
+  margin-top: 50px;
+  position: relative;
+}
+.form .field-wrapper label {
+  position: absolute;
+  pointer-events: none;
+  font-size: 16px;
+  font-weight: 500;
+  top: 40%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all ease-in 0.25s;
+  color: #999999;
+}
+.form .field-wrapper input[type=text],
+.form .field-wrapper input[type=password],
+.form .field-wrapper input[type=email] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.form .field-wrapper input[type=text]:focus,
+.form .field-wrapper input[type=password]:focus,
+.form .field-wrapper input[type=email]:focus {
+  outline: none;
+}
+.form .field-wrapper input[type=text],
+.form .field-wrapper input[type=email],
+.form .field-wrapper input[type=password] {
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  border: none;
+  background: transparent;
+  line-height: 2em;
+  border-bottom: 2px solid #f9b544;
+}
+.form .field-wrapper input[type=text]::-webkit-input-placeholder,
+.form .field-wrapper input[type=email]::-webkit-input-placeholder,
+.form .field-wrapper input[type=password]::-webkit-input-placeholder {
+  opacity: 0;
+}
+.form .field-wrapper input[type=text]::-moz-placeholder,
+.form .field-wrapper input[type=email]::-moz-placeholder,
+.form .field-wrapper input[type=password]::-moz-placeholder {
+  opacity: 0;
+}
+.form .field-wrapper input[type=text]:-ms-input-placeholder,
+.form .field-wrapper input[type=email]:-ms-input-placeholder,
+.form .field-wrapper input[type=password]:-ms-input-placeholder {
+  opacity: 0;
+}
+.form .field-wrapper input[type=text]:-moz-placeholder,
+.form .field-wrapper input[type=email]:-moz-placeholder,
+.form .field-wrapper input[type=password]:-moz-placeholder {
+  opacity: 0;
+}
+.form .field-wrapper input[type=text]:not(:-moz-placeholder-shown) + label, .form .field-wrapper input[type=email]:not(:-moz-placeholder-shown) + label, .form .field-wrapper input[type=password]:not(:-moz-placeholder-shown) + label {
+  top: -35%;
+  color: #f9b544;
+}
+.form .field-wrapper input[type=text]:not(:-ms-input-placeholder) + label, .form .field-wrapper input[type=email]:not(:-ms-input-placeholder) + label, .form .field-wrapper input[type=password]:not(:-ms-input-placeholder) + label {
+  top: -35%;
+  color: #f9b544;
+}
+.form .field-wrapper input[type=text]:focus + label, .form .field-wrapper input[type=text]:not(:placeholder-shown) + label,
+.form .field-wrapper input[type=email]:focus + label,
+.form .field-wrapper input[type=email]:not(:placeholder-shown) + label,
+.form .field-wrapper input[type=password]:focus + label,
+.form .field-wrapper input[type=password]:not(:placeholder-shown) + label {
+  top: -35%;
+  color: #f9b544;
+}
+.form .submit_btn {
+  margin-top: 46px;
+}
+.form .submit_btn button {
+  width: 100%;
+  border: none;
+  background-color: #f9b544;
+  color: white;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.form .auth_show_pass {
+  position: absolute;
+  right: 10px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #f9b544;
+}
+
+/*---------------- [5] Home page ----------------*/
+.home_page {
+  padding-top: 40px;
+  /* modal */
+}
+.home_page .file_table {
+  margin-top: 24px;
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 14px;
+  border-radius: 14px;
+  font-family: "Poppins", sans-serif;
+}
+.home_page .file_table th,
+.home_page .file_table td {
+  font-size: 14px;
+}
+.home_page .file_table .ext {
+  background-color: #c6c6ed;
+  color: white;
+  padding: 4px;
+  font-size: 9px;
+  border-radius: 3px;
+  margin-right: 9px;
+  position: relative;
+  top: -1px;
+}
+.home_page .file_table tr:nth-child(2) .file_name_td .ext {
+  background-color: #ffb7b7;
+}
+.home_page .file_table tr:nth-child(3) .file_name_td .ext {
+  background-color: #f6a1f8;
+}
+.home_page .file_table tr:nth-child(4) .file_name_td .ext {
+  background-color: #98a1f9;
+}
+.home_page .file_table tr:nth-child(5) .file_name_td .ext {
+  background-color: #f6d595;
+}
+.home_page .file_table tr:nth-child(6) .file_name_td .ext {
+  background-color: #f8b57a;
+}
+.home_page .file_table tr:nth-child(7) .file_name_td .ext {
+  background-color: #85e4d5;
+}
+.home_page .file_table tr:nth-child(8) .file_name_td .ext {
+  background-color: #9ac4b0;
+}
+.home_page .file_table tr:nth-child(9) .file_name_td .ext {
+  background-color: #c4bc9a;
+}
+.home_page .file_table tr:nth-child(10) .file_name_td .ext {
+  background-color: #c49a9a;
+}
+.home_page .file_table i.bx.bx-dots-horizontal-rounded {
+  font-size: 19px;
+  cursor: pointer;
+}
+.home_page .file_table .file_name {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 21px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  width: 180px;
+}
+.home_page .file_table .file_name_td {
+  display: -webkit-box;
+  margin-right: -35px;
+}
+.home_page .file_table .dropdown-item {
+  font-size: 14px;
+  margin-bottom: 5px;
+  transition: all 0.2s ease;
+}
+.home_page .file_table .dropdown-item i {
+  font-size: 18px;
+  position: relative;
+  top: 3px;
+  left: -3px;
+}
+.home_page .file_table .dropdown-item i.bx.bx-cloud-download {
+  color: #03d603;
+}
+.home_page .file_table .dropdown-item i.bx.bx-share-alt {
+  color: #5252f5;
+}
+.home_page .file_table .dropdown-item i.bx.bxs-trash {
+  color: #f34848;
+}
+.home_page .file_table .dropdown-item:hover {
+  background-color: #f9b544;
+  color: white;
+}
+.home_page .modal-content {
+  border-radius: 14px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: 1px solid rgba(216, 216, 216, 0.2);
+}
+.home_page .modal-content .modal_header {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+}
+.home_page .modal-content .modal_header h5 {
+  font-size: 19px;
+}
+.home_page .modal-content .modal_header i.bx.bx-x {
+  font-size: 30px;
+  color: #ec6767;
+}
+.home_page .modal-content .modal_fileInfo {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.home_page .modal-content .modal_fileInfo img {
+  width: 150px;
+  border-radius: 7px;
+}
+.home_page .modal-content .modal_fileInfo .file_info {
+  margin-left: 34px;
+}
+.home_page .modal-content .modal_fileInfo .file_info h6 {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 21px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  width: 230px;
+  color: #6b6b6b;
+}
+.home_page .modal-content .modal_fileInfo .file_info .file_type {
+  display: flex;
+}
+.home_page .modal-content .modal_fileInfo .file_info .file_type p {
+  line-height: 0;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.home_page .modal-content .modal_fileInfo .file_info .file_type p span {
+  color: #6b6b6b;
+}
+.home_page .modal-content .modal_fileInfo .file_info .file_type p:last-child {
+  margin-left: 20px;
+}
+.home_page .modal-content .form .field-wrapper {
+  margin-top: 40px;
+}
+.home_page .modal-content .form .submit_btn {
+  margin-top: 26px;
+  text-align: center;
+}
+.home_page .modal-content .form .submit_btn button {
+  width: auto;
+  padding: 7px 26px;
+  font-size: 14px;
 }
 
 /*---------------- [**] Footer ----------------*/
