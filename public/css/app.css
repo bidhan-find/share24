@@ -331,6 +331,10 @@ body {
   height: 100vh;
 }
 
+.gray {
+  color: #6b6b6b;
+}
+
 /*--- Typography ---*/
 h1 {
   font-size: 40px;
@@ -1204,6 +1208,7 @@ section.auth .auth_container form a.auth_link {
 .home_page .file_table i.bx.bx-dots-horizontal-rounded {
   font-size: 19px;
   cursor: pointer;
+  padding-left: 12px;
 }
 .home_page .file_table .file_name {
   word-break: break-word;
@@ -1233,7 +1238,8 @@ section.auth .auth_container form a.auth_link {
 .home_page .file_table .dropdown-item i.bx.bx-cloud-download {
   color: #03d603;
 }
-.home_page .file_table .dropdown-item i.bx.bx-share-alt {
+.home_page .file_table .dropdown-item i.bx.bx-share-alt,
+.home_page .file_table .dropdown-item i.bx.bx-show-alt {
   color: #5252f5;
 }
 .home_page .file_table .dropdown-item i.bx.bxs-trash {
@@ -1242,6 +1248,19 @@ section.auth .auth_container form a.auth_link {
 .home_page .file_table .dropdown-item:hover {
   background-color: #f9b544;
   color: white;
+}
+.home_page .email_table .share_file_name {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 21px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  width: 160px;
+}
+.home_page .email_table .file_name_td {
+  margin-right: 0px;
 }
 .home_page .modal-content {
   border-radius: 14px;
@@ -1310,7 +1329,50 @@ section.auth .auth_container form a.auth_link {
   padding: 7px 26px;
   font-size: 14px;
 }
+.home_page .modal-content .sending_time {
+  font-size: 14px;
+  font-weight: 500;
+}
+.home_page .modal-content ul {
+  padding-left: 0;
+}
 
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+  .dropdown-menu li {
+    position: relative;
+  }
+
+  .dropdown-menu .submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+  }
+
+  .dropdown-menu .submenu-left {
+    right: 100%;
+    left: auto;
+  }
+
+  .dropdown-menu > li:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown-menu > li:hover > .submenu {
+    display: block;
+  }
+}
+/* ============ desktop view .end// ============ */
+/* ============ small devices ============ */
+@media (max-width: 991px) {
+  .dropdown-menu .dropdown-menu {
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+}
+/* ============ small devices .end// ============ */
 /*---------------- [**] Footer ----------------*/
 footer {
   background-color: #333;

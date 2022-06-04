@@ -11,6 +11,8 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
 /* harmony import */ var noty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(noty__WEBPACK_IMPORTED_MODULE_0__);
+var _document$getElementB;
+
 /* eslint-disable space-before-function-paren */
 
 /* eslint-disable no-undef */
@@ -35,7 +37,7 @@ setTimeout(function () {
   $('#email').focus();
   $('#username').focus();
 }, 400);
-document.getElementById('homeShareModal').addEventListener('click', function () {
+(_document$getElementB = document.getElementById('homeShareModal')) === null || _document$getElementB === void 0 ? void 0 : _document$getElementB.addEventListener('click', function () {
   setTimeout(function () {
     $('#sendMail').focus();
   }, 600);

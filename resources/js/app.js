@@ -19,7 +19,7 @@ setTimeout(function () {
     $('#username').focus();
 }, 400);
 
-document.getElementById('homeShareModal').addEventListener('click', () => {
+document.getElementById('homeShareModal')?.addEventListener('click', () => {
     setTimeout(function () {
         $('#sendMail').focus();
     }, 600);
