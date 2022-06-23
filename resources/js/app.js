@@ -215,3 +215,112 @@ userUpdateBtn?.addEventListener('click', () => {
 });
 
 profileImage?.addEventListener('change', () => previewProfileImage(profileImage));
+
+/* ---------------- folder Functions ---------------- */
+
+// Handler that uses various data-* attributes to trigger
+const triggers = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
+window.addEventListener('click', ev => {
+    const elm = ev.target;
+    if (triggers.includes(elm)) {
+        const selector = elm.getAttribute('data-target');
+        collapse(selector, 'toggle');
+    }
+}, false);
+const fnmap = {
+    toggle: 'toggle',
+    show: 'add',
+    hide: 'remove'
+};
+const collapse = (selector, cmd) => {
+    const targets = Array.from(document.querySelectorAll(selector));
+    targets.forEach(target => {
+        target.classList[fnmap[cmd]]('show');
+        $('#createFolderInput').focus();
+    });
+};
+
+// Create Folder
+const createFolderBtn = document.querySelector('.create_folder_sub');
+
+createFolderBtn.addEventListener('click', () => {
+    const foldername = document.querySelector('#createFolderInput');
+    const data = { foldername: foldername.value };
+    fetch('/folder/create', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(res => res.json()).then(data => {
+        if (data.message) {
+            foldername.value = '';
+            new Noty({
+                type: 'success',
+                timeout: 3000,
+                text: data.message,
+                progressBar: false
+            }).show();
+            getFolderFunc();
+            document.querySelector('.block').classList.remove('show');
+        }
+    }).catch(() => {
+        new Noty({
+            type: 'error',
+            timeout: 1000,
+            text: 'Something went wrong',
+            progressBar: false
+        }).show();
+    });
+});
+
+// Get Folder
+let folderMarkap;
+function getFolderFunc() {
+    fetch('/folders')
+        .then(response => response.json())
+        .then(({ folders }) => {
+            // console.log(folders);
+            folderMarkap = generateMarkapFolderList(folders);
+            document.querySelector('#folderList').innerHTML = folderMarkap;
+        }).catch(() => {
+            new Noty({
+                type: 'error',
+                timeout: 1000,
+                text: 'Something went wrong',
+                progressBar: false
+            }).show();
+        });
+};
+
+getFolderFunc();
+
+function generateMarkapFolderList(folders) {
+    return folders.map(({ foldername }) => {
+        return `
+            <li class="d-flex">
+                <a href="#" class="folder_name">
+                    <i class='bx bx-folder icon-top'></i>
+                    ${foldername}
+                    <span>(202)</span>
+                </a>
+                <div class="dropdown">
+                    <i class='bx bx-dots-horizontal-rounded icon-top' role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" id="dropdownMenuLink"></i>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class='bx bx-trash icon-top text-danger'></i> Delete board & files
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class='bx bxs-trash icon-top text-danger'></i> Delete board only
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            `;
+    }).join('');
+};

@@ -248,6 +248,100 @@ userUpdateBtn === null || userUpdateBtn === void 0 ? void 0 : userUpdateBtn.addE
 profileImage === null || profileImage === void 0 ? void 0 : profileImage.addEventListener('change', function () {
   return previewProfileImage(profileImage);
 });
+/* ---------------- folder Functions ---------------- */
+// Handler that uses various data-* attributes to trigger
+
+var triggers = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
+window.addEventListener('click', function (ev) {
+  var elm = ev.target;
+
+  if (triggers.includes(elm)) {
+    var selector = elm.getAttribute('data-target');
+    collapse(selector, 'toggle');
+  }
+}, false);
+var fnmap = {
+  toggle: 'toggle',
+  show: 'add',
+  hide: 'remove'
+};
+
+var collapse = function collapse(selector, cmd) {
+  var targets = Array.from(document.querySelectorAll(selector));
+  targets.forEach(function (target) {
+    target.classList[fnmap[cmd]]('show');
+    $('#createFolderInput').focus();
+  });
+}; // Create Folder
+
+
+var createFolderBtn = document.querySelector('.create_folder_sub');
+createFolderBtn.addEventListener('click', function () {
+  var foldername = document.querySelector('#createFolderInput');
+  var data = {
+    foldername: foldername.value
+  };
+  fetch('/folder/create', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(function (res) {
+    return res.json();
+  }).then(function (data) {
+    if (data.message) {
+      foldername.value = '';
+      new (noty__WEBPACK_IMPORTED_MODULE_0___default())({
+        type: 'success',
+        timeout: 3000,
+        text: data.message,
+        progressBar: false
+      }).show();
+      getFolderFunc();
+      document.querySelector('.block').classList.remove('show');
+    }
+  })["catch"](function () {
+    new (noty__WEBPACK_IMPORTED_MODULE_0___default())({
+      type: 'error',
+      timeout: 1000,
+      text: 'Something went wrong',
+      progressBar: false
+    }).show();
+  });
+}); // Get Folder
+
+var folderMarkap;
+
+function getFolderFunc() {
+  fetch('/folders').then(function (response) {
+    return response.json();
+  }).then(function (_ref) {
+    var folders = _ref.folders;
+    // console.log(folders);
+    folderMarkap = generateMarkapFolderList(folders);
+    document.querySelector('#folderList').innerHTML = folderMarkap;
+  })["catch"](function () {
+    new (noty__WEBPACK_IMPORTED_MODULE_0___default())({
+      type: 'error',
+      timeout: 1000,
+      text: 'Something went wrong',
+      progressBar: false
+    }).show();
+  });
+}
+
+;
+getFolderFunc();
+
+function generateMarkapFolderList(folders) {
+  return folders.map(function (_ref2) {
+    var foldername = _ref2.foldername;
+    return "\n            <li class=\"d-flex\">\n                <a href=\"#\" class=\"folder_name\">\n                    <i class='bx bx-folder icon-top'></i>\n                    ".concat(foldername, "\n                    <span>(202)</span>\n                </a>\n                <div class=\"dropdown\">\n                    <i class='bx bx-dots-horizontal-rounded icon-top' role=\"button\" data-bs-toggle=\"dropdown\"\n                        aria-expanded=\"false\" id=\"dropdownMenuLink\"></i>\n                    <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuLink\">\n                        <li>\n                            <a class=\"dropdown-item\" href=\"#\">\n                                <i class='bx bx-trash icon-top text-danger'></i> Delete board & files\n                            </a>\n                        </li>\n                        <li>\n                            <a class=\"dropdown-item\" href=\"#\">\n                                <i class='bx bxs-trash icon-top text-danger'></i> Delete board only\n                            </a>\n                        </li>\n                    </ul>\n                </div>\n            </li>\n            ");
+  }).join('');
+}
+
+;
 
 /***/ }),
 

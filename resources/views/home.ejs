@@ -381,7 +381,7 @@
                                     <tr>
                                         <th scope="col">Name</th>
                                         <th scope="col">Size</th>
-                                        <th scope="col">Last Modified</th>
+                                        <th scope="col">Expire Time</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -392,7 +392,7 @@
                                             <span class="file_name">Brande.pdf</span>
                                         </td>
                                         <td>42 MB</td>
-                                        <td>Aug 26, 2020</td>
+                                        <td class="text-danger">14 days</td>
                                         <td>
                                             <div class="dropdown">
                                                 <i class='bx bx-dots-horizontal-rounded' data-bs-toggle="dropdown"></i>
@@ -400,7 +400,8 @@
                                                     <li><a class="dropdown-item" href="#"> <i
                                                                 class='bx bx-cloud-download'></i> Download </a></li>
                                                     <li>
-                                                        <a class="dropdown-item" href="#"> Copy Folder
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class='bx bx-copy-alt'></i> Copy Folder
                                                         </a>
                                                         <ul class="submenu dropdown-menu">
                                                             <li>
@@ -412,18 +413,26 @@
                                                         </ul>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="#">
+                                                        <a id="homeShareModal" class="dropdown-item" href="#"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#recentFileShareModal">
                                                             <i class='bx bx-share-alt'></i> Share
                                                         </a>
                                                     </li>
-                                                    <li><a class="dropdown-item" href="#">
-                                                            <i class='bx bxs-trash'></i> Delete </a>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">
+                                                            <i class='bx bxs-trash'></i> Delete
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="text-center view_more">
+                                <a href="#">View More...</a>
+                            </div>
                         </div>
                 </div>
             </div>
@@ -472,7 +481,6 @@
                 </div>
             </div>
         </div>
-
 
         <!-- Recent email view modal -->
         <div class="modal fade" id="recentViewModal" tabindex="-1" aria-labelledby="recentViewModalLabel"
@@ -541,26 +549,15 @@
         <% } %>
 
             <script type="text/javascript">
-                //	window.addEventListener("resize", function() {
-                //		"use strict"; window.location.reload(); 
-                //	});
-
-
                 document.addEventListener("DOMContentLoaded", function () {
-
-
-                    /////// Prevent closing from click inside dropdown
+                    // Prevent closing from click inside dropdown
                     document.querySelectorAll('.dropdown-menu').forEach(function (element) {
                         element.addEventListener('click', function (e) {
                             e.stopPropagation();
                         });
                     })
-
-
-
                     // make it as accordion for smaller screens
                     if (window.innerWidth < 992) {
-
                         // close all inner dropdowns when parent is closed
                         document.querySelectorAll('.navbar .dropdown').forEach(function (everydropdown) {
                             everydropdown.addEventListener('hidden.bs.dropdown', function () {

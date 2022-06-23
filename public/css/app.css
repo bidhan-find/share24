@@ -16,6 +16,7 @@ MIT license       : https://github.com/bidhandev/share24/blob/master/LICENSE
 3. Auth page / section.auth
 4. Edit user / edit_user
 5. Home page / .home_page
+5. Drop page / .drop_page
 **. Footer / footer
 
 */
@@ -333,6 +334,11 @@ body {
 
 .gray {
   color: #6b6b6b;
+}
+
+.icon-top {
+  position: relative;
+  top: 2.5px;
 }
 
 /*--- Typography ---*/
@@ -1156,6 +1162,9 @@ section.auth .auth_container form a.auth_link {
   padding-top: 40px;
   /* modal */
 }
+.home_page .view_more {
+  font-size: 14px;
+}
 .home_page .file_table {
   margin-top: 24px;
   background-color: white;
@@ -1373,6 +1382,119 @@ section.auth .auth_container form a.auth_link {
   }
 }
 /* ============ small devices .end// ============ */
+/*---------------- [6] Drop page ----------------*/
+.drop_page .sidebar {
+  padding-top: 20px;
+  height: calc(100vh - 73px);
+  background-color: white;
+  width: 300px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  font-family: "Poppins", sans-serif;
+}
+.drop_page .sidebar .create_folder_btn {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.drop_page .sidebar .create_folder_btn:hover {
+  color: #f9b544;
+}
+.drop_page .sidebar .create_folder_btn i {
+  font-size: 19px;
+}
+.drop_page .sidebar .collapse {
+  display: block;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 1s cubic-bezier(0, 1, 0, 1);
+}
+.drop_page .sidebar .collapse.show {
+  max-height: 99em;
+  transition: max-height 1s ease-in-out;
+}
+.drop_page .sidebar .block {
+  margin-top: 10px;
+  background-color: #fafafa;
+  padding: 0;
+  border-radius: 10px;
+}
+.drop_page .sidebar .block .content {
+  border: 1px solid #ebebeb;
+  padding: 15px;
+  height: 100%;
+}
+.drop_page .sidebar .block .content input {
+  width: 100%;
+  padding: 6px 15px;
+  border-radius: 7px;
+  border: 1px solid #f9b544;
+}
+.drop_page .sidebar .block .content input[type=text]:focus {
+  outline: none !important;
+}
+.drop_page .sidebar .block .content .create_folder_sub {
+  background-color: #f9b544;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 4px;
+}
+.drop_page .sidebar .folder_lists {
+  margin-top: 14px;
+  padding-left: 0rem;
+}
+.drop_page .sidebar .folder_lists li.d-flex {
+  justify-content: space-between;
+}
+.drop_page .sidebar .folder_lists li {
+  transition: 0.2s ease;
+  padding: 12px 20px;
+  padding-left: 30px;
+}
+.drop_page .sidebar .folder_lists li .dropdown {
+  opacity: 0;
+  transition: 0.2s ease;
+}
+.drop_page .sidebar .folder_lists li .dropdown i#dropdownMenuLink {
+  font-size: 18px;
+  color: #f9b544;
+}
+.drop_page .sidebar .folder_lists li:hover {
+  background-color: #fafafa;
+}
+.drop_page .sidebar .folder_lists li:hover .folder_name {
+  color: #f9b544;
+}
+.drop_page .sidebar .folder_lists li:hover .dropdown {
+  opacity: 1 !important;
+}
+.drop_page .sidebar .folder_lists li a {
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+}
+.drop_page .sidebar .folder_lists li a i {
+  font-size: 17px;
+  margin-right: 5px;
+}
+.drop_page .sidebar .folder_lists li a span {
+  font-size: 13px;
+}
+.drop_page .sidebar .folder_lists .dropdown li {
+  padding: 0;
+  padding-left: 0;
+  margin: 3px;
+}
+.drop_page .sidebar .folder_lists .dropdown li a:focus {
+  background-color: red !important;
+}
+
 /*---------------- [**] Footer ----------------*/
 footer {
   background-color: #333;

@@ -1,0 +1,117 @@
+.drop_page {
+    .sidebar {
+        padding-top: 20px;
+        height: calc(100vh - 73px);
+        background-color: $pure;
+        width: 300px;
+        box-shadow: $box-shadow;
+        font-family: $poppins;
+        .create_folder_btn {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: $smooth;
+            &:hover {
+                color: $primary-color;
+            }
+            i {
+                font-size: 19px;
+            }
+        }
+        .collapse {
+            display: block;
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 1s cubic-bezier(0, 1, 0, 1);
+
+            &.show {
+                max-height: 99em;
+                transition: max-height 1s ease-in-out;
+            }
+        }
+        .block {
+            margin-top: 10px;
+            background-color: $primary-bg;
+            padding: 0;
+            border-radius: 10px;
+            .content {
+                border: 1px solid #ebebeb;
+                padding: 15px;
+                height: 100%;
+                input {
+                    width: 100%;
+                    padding: 6px 15px;
+                    border-radius: 7px;
+                    border: 1px solid $primary-color;
+                }
+                input[type="text"]:focus {
+                    outline: none !important;
+                }
+                .create_folder_sub {
+                    background-color: $primary-color;
+                    color: $pure;
+                    border: none;
+                    outline: none;
+                    font-size: 13px;
+                    text-transform: uppercase;
+                    padding: 5px 11px;
+                    border-radius: 4px;
+                }
+            }
+        }
+        .folder_lists {
+            margin-top: 14px;
+            padding-left: 0rem;
+            li.d-flex {
+                justify-content: space-between;
+            }
+            li {
+                transition: $smooth;
+                padding: 12px 20px;
+                padding-left: 30px;
+                .dropdown {
+                    opacity: 0;
+                    transition: $smooth;
+                    i#dropdownMenuLink {
+                        font-size: 18px;
+                        color: $primary-color;
+                    }
+                }
+                &:hover {
+                    background-color: $primary-bg;
+                    .folder_name {
+                        color: $primary-color;
+                    }
+                    .dropdown {
+                        opacity: 1 !important;
+                    }
+                }
+
+                a {
+                    color: black;
+                    font-size: 14px;
+                    font-weight: 600;
+                    i {
+                        font-size: 17px;
+                        margin-right: 5px;
+                    }
+                    span {
+                        font-size: 13px;
+                    }
+                }
+            }
+            .dropdown {
+                li {
+                    padding: 0;
+                    padding-left: 0;
+                    margin: 3px;
+                    a:focus {
+                        background-color: red !important;
+                    }
+                }
+            }
+        }
+    }
+}

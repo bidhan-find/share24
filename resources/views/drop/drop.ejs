@@ -1,0 +1,47 @@
+<section class="drop_page">
+    <div class="sidebar">
+        <div class="create_folder">
+            <p data-toggle="collapse" data-target=".collapse" class="create_folder_btn">
+                <i class='bx bx-folder-plus icon-top'></i> Create Folder
+            </p>
+            <div class="block collapse">
+                <div class="content">
+                    <input type="text" placeholder="Enter folder name" id="createFolderInput">
+                    <div class="text-center mt-3">
+                        <button class="create_folder_sub">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <ul class="folder_lists">
+            <li><a href="#"><i class='bx bxs-grid icon-top'></i> All Files <span>(202)</span></a></li>
+            <br>
+            <div id="folderList">
+                <li class="d-flex">
+                    <a href="#" class="folder_name">
+                        <i class='bx bx-folder icon-top'></i>
+                        My Photos
+                        <span>(202)</span>
+                    </a>
+                    <div class="dropdown">
+                        <i class='bx bx-dots-horizontal-rounded icon-top' role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" id="dropdownMenuLink"></i>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class='bx bx-trash icon-top text-danger'></i> Delete board & files
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class='bx bxs-trash icon-top text-danger'></i> Delete board only
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+</section>

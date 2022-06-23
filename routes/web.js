@@ -6,6 +6,8 @@
 const authController = require('../app/http/controllers/authController');
 const homeController = require('../app/http/controllers/homeController');
 const userController = require('../app/http/controllers/userController');
+const dropController = require('../app/http/controllers/drop/dropController');
+const folderController = require('../app/http/controllers/drop/folderController');
 
 // Middlewares
 const guest = require('../app/http/middleware/guest');
@@ -23,6 +25,11 @@ function initRoutes(app) {
     app.post('/register', authController().register);
     app.post('/user-edit/check-password', userController().checkPassword);
     app.post('/user-edit', uploadMS, uploadFirebase, userController().editUser);
+
+    // Routes
+    app.get('/drop', dropController().drop);
+    app.post('/folder/create', folderController().createFolder);
+    app.get('/folders', folderController().getFolders);
 };
 
 module.exports = initRoutes;

@@ -32,6 +32,11 @@ body {
     color: $text-gray;
 }
 
+.icon-top {
+    position: relative;
+    top: 2.5px;
+}
+
 /*--- Typography ---*/
 h1 {
     font-size: 40px;
