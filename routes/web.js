@@ -30,7 +30,8 @@ function initRoutes(app) {
     app.get('/drop', dropController().drop);
     app.post('/folder/create', folderController().createFolder);
     app.get('/folders', folderController().getFolders);
-    app.post('/folder/cover-photo', uploadMS, uploadFirebase, folderController().coverPhoto);
+    app.post('/folder/cover-photo', uploadMS, uploadFirebase, folderController().coverPhotoPost);
+    app.get('/folder/cover-photo', folderController().coverPhoto);
 };
 
 module.exports = initRoutes;

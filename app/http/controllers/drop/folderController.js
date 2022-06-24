@@ -25,7 +25,7 @@ function folderController() {
             res.status(200).json({ folders });
         },
 
-        async coverPhoto(req, res) {
+        async coverPhotoPost(req, res) {
             const findAllFiles = await AllFiles.findOne({ userId: req.user._id });
             if (!findAllFiles) {
                 const allFiles = new AllFiles({
@@ -37,16 +37,25 @@ function folderController() {
                         res.status(201).json({ message: 'Cover photo uploaded', allFiles });
                     });
                 });
+            } else {
+                const url = 'https://storage.googleapis.com/share-24.appspot.com/images/';
+                const imageName = findAllFiles?.image.split(url)[1];
+                bucket.file(`images/${imageName}`).delete();
+                const updateCoverPhoto = await AllFiles.findOneAndUpdate({
+                    id: req.user._id
+                }, {
+                    image: req.file.firebaseUrl
+                }, { new: true });
+                if (updateCoverPhoto) return res.status(200).json({ message: 'Cover photo updated', updateCoverPhoto });
             };
-            const url = 'https://storage.googleapis.com/share-24.appspot.com/images/';
-            const imageName = findAllFiles.image.split(url)[1];
-            bucket.file(`images/${imageName}`).delete();
-            const updateCoverPhoto = await AllFiles.findOneAndUpdate({
-                id: req.user._id
-            }, {
-                image: req.file.firebaseUrl
-            }, { new: true });
-            if (updateCoverPhoto) return res.status(200).json({ message: 'Cover photo updated', updateCoverPhoto });
+        },
+
+        async coverPhoto(req, res) {
+            const findAllFiles = await AllFiles.findOne({ userId: req.user._id });
+            if (findAllFiles) {
+                return res.status(200).json({ allFilesImage: findAllFiles });
+            }
+            return res.status(404).json({ error: 'Image not found' });
         }
     }
 };

@@ -46,11 +46,23 @@
     </div>
 
     <div class="drop_body">
-        <label class="cover_photo" for="uploadCoverAllFiles">
+        <label class="cover_photo_input" id="coverPhotoInput" for="uploadCoverAllFiles">
             <span>Upload cover photo <i class='bx bx-edit-alt'></i></span>
             <input type="file" id="uploadCoverAllFiles" style="display:none">
+            <div id="allFilesUploadCoverSpin">
+                <div class="spinner-border text-warning" role="status"></div>
+            </div>
         </label>
 
+        <div class="cover_photo" id="coverPhoto">
+            <label class="cover_photo_update_input" for="uploadCoverAllFiles">
+                <span><i class='bx bx-camera'></i></span>
+                <input type="file" id="uploadCoverAllFiles" style="display:none">
+            </label>
+            <div id="allFilesUpdateCoverSpin">
+                <div class="spinner-border text-info" role="status"></div>
+            </div>
+        </div>
     </div>
 
 </section>

@@ -339,16 +339,40 @@ function generateMarkapFolderList(folders) {
 const uploadCoverAllFiles = document.querySelector('#uploadCoverAllFiles');
 
 uploadCoverAllFiles.addEventListener('change', (e) => {
+    const updateSpin = document.querySelector('#allFilesUpdateCoverSpin');
+    document.querySelector('#allFilesUploadCoverSpin').style.display = 'block';
+    if (updateSpin) updateSpin.style.display = 'block';
     const image = document.querySelector('#uploadCoverAllFiles');
     const formData = new FormData();
     formData.append('image', image.files[0]);
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
-            // const data = JSON.parse(xhr.response)
-            console.log(JSON.parse(xhr.response));
+            const data = JSON.parse(xhr.response);
+            if (data) {
+                getAllFilesCoverPhoto();
+                document.querySelector('#allFilesUploadCoverSpin').style.display = 'none';
+                if (updateSpin) updateSpin.style.display = 'none';
+            };
         }
     };
     xhr.open('POST', '/folder/cover-photo');
     xhr.send(formData);
 });
+
+// All files page cover photo get func
+function getAllFilesCoverPhoto() {
+    fetch('/folder/cover-photo')
+        .then(response => response.json())
+        .then(({ allFilesImage }) => {
+            if (!allFilesImage) {
+                document.querySelector('#coverPhotoInput').style.display = 'block';
+            } else {
+                document.querySelector('#coverPhotoInput').style.display = 'none';
+                document.querySelector('#coverPhoto').style.backgroundImage = `url(${allFilesImage.image})`;
+                document.querySelector('#coverPhoto').style.display = 'block';
+            }
+        });
+};
+
+getAllFilesCoverPhoto();
