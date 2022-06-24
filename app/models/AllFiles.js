@@ -1,14 +1,10 @@
 const mongoose = require('mongoose')
 
-const FolderSchema = new mongoose.Schema({
+const AllFilesSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  },
-  foldername: {
-    type: String,
-    default: 'New Folder'
   },
   image: {
     type: String,
@@ -17,4 +13,4 @@ const FolderSchema = new mongoose.Schema({
 
 }, { timestamps: true })
 
-module.exports = mongoose.model('Folder', FolderSchema)
+module.exports = mongoose.model('AllFiles', AllFilesSchema)

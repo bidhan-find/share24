@@ -1383,6 +1383,9 @@ section.auth .auth_container form a.auth_link {
 }
 /* ============ small devices .end// ============ */
 /*---------------- [6] Drop page ----------------*/
+.drop_page {
+  display: flex;
+}
 .drop_page .sidebar {
   padding-top: 20px;
   height: calc(100vh - 73px);
@@ -1493,6 +1496,19 @@ section.auth .auth_container form a.auth_link {
 }
 .drop_page .sidebar .folder_lists .dropdown li a:focus {
   background-color: red !important;
+}
+.drop_page .drop_body {
+  width: 100%;
+  padding: 0px 20px;
+}
+.drop_page .drop_body .cover_photo {
+  margin-top: 20px;
+}
+.drop_page .drop_body .cover_photo span {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f9b544;
+  cursor: pointer;
 }
 
 /*---------------- [**] Footer ----------------*/

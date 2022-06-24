@@ -216,7 +216,7 @@ userUpdateBtn?.addEventListener('click', () => {
 
 profileImage?.addEventListener('change', () => previewProfileImage(profileImage));
 
-/* ---------------- folder Functions ---------------- */
+/* ---------------- Folder Functions ---------------- */
 
 // Handler that uses various data-* attributes to trigger
 const triggers = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
@@ -246,32 +246,41 @@ const createFolderBtn = document.querySelector('.create_folder_sub');
 createFolderBtn.addEventListener('click', () => {
     const foldername = document.querySelector('#createFolderInput');
     const data = { foldername: foldername.value };
-    fetch('/folder/create', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(res => res.json()).then(data => {
-        if (data.message) {
-            foldername.value = '';
-            new Noty({
-                type: 'success',
-                timeout: 3000,
-                text: data.message,
-                progressBar: false
-            }).show();
-            getFolderFunc();
-            document.querySelector('.block').classList.remove('show');
-        }
-    }).catch(() => {
+    if (!foldername.value) {
         new Noty({
             type: 'error',
             timeout: 1000,
-            text: 'Something went wrong',
+            text: 'Enter folder name',
             progressBar: false
         }).show();
-    });
+    } else {
+        fetch('/folder/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json()).then(data => {
+            if (data.message) {
+                foldername.value = '';
+                new Noty({
+                    type: 'success',
+                    timeout: 3000,
+                    text: data.message,
+                    progressBar: false
+                }).show();
+                getFolderFunc();
+                document.querySelector('.block').classList.remove('show');
+            }
+        }).catch(() => {
+            new Noty({
+                type: 'error',
+                timeout: 1000,
+                text: 'Something went wrong',
+                progressBar: false
+            }).show();
+        });
+    }
 });
 
 // Get Folder
@@ -324,3 +333,22 @@ function generateMarkapFolderList(folders) {
             `;
     }).join('');
 };
+
+/* ---------------- Drop Functions ---------------- */
+
+const uploadCoverAllFiles = document.querySelector('#uploadCoverAllFiles');
+
+uploadCoverAllFiles.addEventListener('change', (e) => {
+    const image = document.querySelector('#uploadCoverAllFiles');
+    const formData = new FormData();
+    formData.append('image', image.files[0]);
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            // const data = JSON.parse(xhr.response)
+            console.log(JSON.parse(xhr.response));
+        }
+    };
+    xhr.open('POST', '/folder/cover-photo');
+    xhr.send(formData);
+});

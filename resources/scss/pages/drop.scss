@@ -1,4 +1,5 @@
 .drop_page {
+    display: flex;
     .sidebar {
         padding-top: 20px;
         height: calc(100vh - 73px);
@@ -111,6 +112,20 @@
                         background-color: red !important;
                     }
                 }
+            }
+        }
+    }
+
+    .drop_body {
+        width: 100%;
+        padding: 0px 20px;
+        .cover_photo {
+            margin-top: 20px;
+            span {
+                font-size: 16px;
+                font-weight: 700;
+                color: $primary-color;
+                cursor: pointer;
             }
         }
     }

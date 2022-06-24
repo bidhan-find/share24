@@ -248,7 +248,7 @@ userUpdateBtn === null || userUpdateBtn === void 0 ? void 0 : userUpdateBtn.addE
 profileImage === null || profileImage === void 0 ? void 0 : profileImage.addEventListener('change', function () {
   return previewProfileImage(profileImage);
 });
-/* ---------------- folder Functions ---------------- */
+/* ---------------- Folder Functions ---------------- */
 // Handler that uses various data-* attributes to trigger
 
 var triggers = Array.from(document.querySelectorAll('[data-toggle="collapse"]'));
@@ -281,34 +281,44 @@ createFolderBtn.addEventListener('click', function () {
   var data = {
     foldername: foldername.value
   };
-  fetch('/folder/create', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    if (data.message) {
-      foldername.value = '';
-      new (noty__WEBPACK_IMPORTED_MODULE_0___default())({
-        type: 'success',
-        timeout: 3000,
-        text: data.message,
-        progressBar: false
-      }).show();
-      getFolderFunc();
-      document.querySelector('.block').classList.remove('show');
-    }
-  })["catch"](function () {
+
+  if (!foldername.value) {
     new (noty__WEBPACK_IMPORTED_MODULE_0___default())({
       type: 'error',
       timeout: 1000,
-      text: 'Something went wrong',
+      text: 'Enter folder name',
       progressBar: false
     }).show();
-  });
+  } else {
+    fetch('/folder/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      if (data.message) {
+        foldername.value = '';
+        new (noty__WEBPACK_IMPORTED_MODULE_0___default())({
+          type: 'success',
+          timeout: 3000,
+          text: data.message,
+          progressBar: false
+        }).show();
+        getFolderFunc();
+        document.querySelector('.block').classList.remove('show');
+      }
+    })["catch"](function () {
+      new (noty__WEBPACK_IMPORTED_MODULE_0___default())({
+        type: 'error',
+        timeout: 1000,
+        text: 'Something went wrong',
+        progressBar: false
+      }).show();
+    });
+  }
 }); // Get Folder
 
 var folderMarkap;
@@ -342,6 +352,25 @@ function generateMarkapFolderList(folders) {
 }
 
 ;
+/* ---------------- Drop Functions ---------------- */
+
+var uploadCoverAllFiles = document.querySelector('#uploadCoverAllFiles');
+uploadCoverAllFiles.addEventListener('change', function (e) {
+  var image = document.querySelector('#uploadCoverAllFiles');
+  var formData = new FormData();
+  formData.append('image', image.files[0]);
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      // const data = JSON.parse(xhr.response)
+      console.log(JSON.parse(xhr.response));
+    }
+  };
+
+  xhr.open('POST', '/folder/cover-photo');
+  xhr.send(formData);
+});
 
 /***/ }),
 

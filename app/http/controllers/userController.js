@@ -4,6 +4,7 @@
 
 const bcrypt = require('bcrypt');
 const User = require('../../models/User');
+const bucket = require('../../services/firebase');
 
 function userController() {
     return {
@@ -30,12 +31,15 @@ function userController() {
             // Check image url is exist
             let imageUrl;
             if (!req.file) imageUrl = req.user.profileImage;
-            else imageUrl = req.file.firebaseUrl;
-
+            else {
+                const url = 'https://storage.googleapis.com/share-24.appspot.com/images/';
+                const imageName = req.user.profileImage.split(url)[1];
+                bucket.file(`images/${imageName}`).delete();
+                imageUrl = req.file.firebaseUrl;
+            };
             if (req.body.password !== req.body.confirmPassword) {
                 return res.status(404).json({ error: 'Your confirm password are not matching' })
-            }
-
+            };
             const user = await User.findOneAndUpdate({
                 id: req.user._id
             }, {
@@ -43,7 +47,6 @@ function userController() {
                 password: newPassword,
                 profileImage: imageUrl
             }, { new: true });
-
             if (user) return res.status(200).json({ user });
         }
     }
